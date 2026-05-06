@@ -45,7 +45,7 @@ pageviews:
 
 # PWA 开关（是否支持安装到桌面与离线缓存）
 pwa:
-  enabled: true
+  enabled: false
   cache:
     enabled: true
     deny_paths: []
