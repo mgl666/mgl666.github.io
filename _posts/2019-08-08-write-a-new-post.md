@@ -261,7 +261,7 @@ For normal images:
 You can embed video/audio from social media platforms with the following syntax:
 
 ```liquid
-{% include embed/{Platform}.html id='{ID}' %}
+&#123;% include embed/{Platform}.html id='{ID}' %&#125;
 ```
 
 Where `Platform` is the lowercase of the platform name, and `ID` is the video ID.
@@ -277,15 +277,15 @@ The following table shows how to get the two parameters we need in a given video
 
 Spotify supports some additional parameters:
 
-- `compact` - to display a compact player instead (ex. `{% include embed/spotify.html id='3OuMIIFP5TxM8tLXMWYPGV' compact=1 %}`);
-- `dark` - to force dark theme (ex. `{% include embed/spotify.html id='3OuMIIFP5TxM8tLXMWYPGV' dark=1 %}`).
+- `compact` - to display a compact player instead (ex. `&#123;% include embed/spotify.html id='3OuMIIFP5TxM8tLXMWYPGV' compact=1 %&#125;`);
+- `dark` - to force dark theme (ex. `&#123;% include embed/spotify.html id='3OuMIIFP5TxM8tLXMWYPGV' dark=1 %&#125;`).
 
 ### Video Files
 
 If you want to embed a video file directly, use the following syntax:
 
 ```liquid
-{% include embed/video.html src='{URL}' %}
+&#123;% include embed/video.html src='{URL}' %&#125;
 ```
 
 Where `URL` is a URL to a video file e.g. `/path/to/sample/video.mp4`.
@@ -302,7 +302,7 @@ You can also specify additional attributes for the embedded video file. Here is 
 Consider an example using all of the above:
 
 ```liquid
-{%
+&#123;%
   include embed/video.html
   src='/path/to/video.mp4'
   types='ogg|mov'
@@ -311,7 +311,7 @@ Consider an example using all of the above:
   autoplay=true
   loop=true
   muted=true
-%}
+%&#125;
 ```
 
 ### Audio Files
@@ -319,7 +319,7 @@ Consider an example using all of the above:
 If you want to embed an audio file directly, use the following syntax:
 
 ```liquid
-{% include embed/audio.html src='{URL}' %}
+&#123;% include embed/audio.html src='{URL}' %&#125;
 ```
 
 Where `URL` is a URL to an audio file e.g. `/path/to/audio.mp3`.
@@ -332,12 +332,12 @@ You can also specify additional attributes for the embedded audio file. Here is 
 Consider an example using all of the above:
 
 ```liquid
-{%
+&#123;%
   include embed/audio.html
   src='/path/to/audio.mp3'
   types='ogg|wav|aac'
   title='Demo audio'
-%}
+%&#125;
 ```
 
 ## Pinned Posts
@@ -396,9 +396,7 @@ key: value
 ```
 ````
 
-{% raw %}
-> The Jekyll tag `{% highlight %}` is not compatible with this theme.
-{% endraw %}
+> The Jekyll tag `&#123;% highlight %&#125;` is not compatible with this theme.
 {: .prompt-danger }
 
 #### Line Number
@@ -425,16 +423,14 @@ You may have noticed that the code language will be displayed at the top of the 
 
 #### Liquid Codes
 
-If you want to display the **Liquid** snippet, surround the liquid code with `{% raw %}` and `{% endraw %}`:
+If you want to display the **Liquid** snippet, surround the liquid code with `&#123;% raw %&#125;` and `&#123;% endraw %&#125;`:
 
 ````markdown
-{% raw %}
 ```liquid
-{% if product.title contains 'Pack' %}
+&#123;% if product.title contains 'Pack' %&#125;
   This product's title contains the word Pack.
-{% endif %}
+&#123;% endif %&#125;
 ```
-{% endraw %}
 ````
 
 Or adding `render_with_liquid: false` (Requires Jekyll 4.0 or higher) to the post's YAML block.
