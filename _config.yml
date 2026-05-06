@@ -13,8 +13,8 @@ description: A minimal, responsive and feature-rich Jekyll theme for technical w
 # 站点地址配置
 # - 个人主页仓库（username.github.io）通常 baseurl 为空
 # - 项目页仓库（username.github.io/repo）时 baseurl 一般写 /repo
-url: ""
-baseurl: ""
+url: "https://mgl666.github.io"
+baseurl: "/mgl.github.io"
 
 # GitHub 用户名（用于侧边栏链接等）
 github:
