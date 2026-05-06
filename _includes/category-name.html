@@ -1,0 +1,19 @@
+{% assign _name = include.name %}
+{% assign _lang = include.lang | default: site.lang | default: 'en' %}
+{% assign _short = _lang | split: '-' | first %}
+{% assign _dict = site.data.categories_i18n[_name] %}
+{% assign _display = _name %}
+
+{% if _dict %}
+  {% if _dict[_lang] %}
+    {% assign _display = _dict[_lang] %}
+  {% elsif _dict[_short] %}
+    {% assign _display = _dict[_short] %}
+  {% elsif _short == 'zh' and _dict['zh-CN'] %}
+    {% assign _display = _dict['zh-CN'] %}
+  {% elsif _dict['en'] %}
+    {% assign _display = _dict['en'] %}
+  {% endif %}
+{% endif %}
+
+{{ _display }}

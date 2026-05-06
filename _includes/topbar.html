@@ -30,6 +30,9 @@
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}
               <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
+            {% elsif page.layout == 'category' %}
+              {%- capture _category_name -%}{% include category-name.html name=page.title lang=include.lang %}{%- endcapture -%}
+              <span>{{ _category_name | strip }}</span>
             {% else %}
               <span>{{ page.title }}</span>
             {% endif %}
