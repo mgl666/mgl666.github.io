@@ -95,8 +95,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     }
 
     @include bp.xxxl {
-      margin-top: 3.5rem;
-      margin-bottom: 2.5rem;
+      margin: 3.5rem 0 2.5rem;
       padding-left: 3.5rem;
     }
   }
@@ -110,10 +109,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     font-size: 1.75rem;
     line-height: 1.2;
     letter-spacing: 0.25px;
-    margin-top: 1.25rem;
-    margin-bottom: 0.5rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 1.25rem auto 0.5rem;
     width: fit-content;
     color: var(--site-title-color);
   }
