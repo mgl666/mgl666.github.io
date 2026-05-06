@@ -1,0 +1,127 @@
+# 主题
+theme: jekyll-theme-chirpy
+
+# 站点默认语言与时区
+lang: en
+timezone: Asia/Shanghai
+
+# 站点标题与描述（侧边栏标题/副标题、SEO 描述）
+title: 马冠龙
+tagline: 记录科研、代码与思考的生长轨迹
+description: A minimal, responsive and feature-rich Jekyll theme for technical writing.
+
+# 站点地址配置
+# - 个人主页仓库（username.github.io）通常 baseurl 为空
+# - 项目页仓库（username.github.io/repo）时 baseurl 一般写 /repo
+url: ""
+baseurl: ""
+
+# GitHub 用户名（用于侧边栏链接等）
+github:
+  username: mgl666
+
+# 作者与联系方式
+social:
+  name: Guanlong Ma
+  email: guanlongma@foxmail.com
+  links:
+    - https://github.com/mgl666
+
+# 媒体资源配置
+# - cdn: 静态资源 CDN 前缀
+# - avatar: 头像路径（会拼接到 cdn 或站点路径）
+cdn: ""
+avatar: "/assets/img/avatar.png"
+social_preview_image:
+
+# 文章目录开关（TOC）与主题模式
+# theme_mode 留空表示跟随系统，可在页面左下角切换明暗
+toc: true
+theme_mode:
+
+# 文章浏览量服务提供商（未启用可留空）
+pageviews:
+  provider:
+
+# PWA 开关（是否支持安装到桌面与离线缓存）
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+    deny_paths: []
+
+# 首页分页数量
+paginate: 10
+
+# Markdown 与代码高亮设置
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# 自定义集合：侧边栏 tabs 页面
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+# 默认 front matter（给文章/草稿/tabs 自动补充字段）
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+# SCSS 编译模式
+sass:
+  style: compressed
+
+# HTML 压缩设置
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+# 构建时忽略的文件/目录
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+
+# 分类归档页面路由（只保留 categories）
+jekyll-archives:
+  enabled: [categories]
+  layouts:
+    category: category
+  permalinks:
+    category: /categories/:name/

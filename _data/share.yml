@@ -1,0 +1,11 @@
+# 文章底部“分享”按钮配置
+# 可用占位符：
+# - TITLE: 文章标题
+# - URL: 文章链接
+# 图标名称来自 Font Awesome: https://fontawesome.com
+
+platforms:
+  # 当前只保留 Telegram 分享；如需新增平台按同结构添加
+  - type: Telegram
+    icon: "fab fa-telegram"
+    link: "https://t.me/share/url?url=URL&text=TITLE"
