@@ -109,6 +109,9 @@ compress_html:
 # GitHub Pages 所需插件
 plugins:
   - jekyll-include-cache
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
 
 # 构建时忽略的文件/目录
 exclude:
