@@ -51,6 +51,78 @@ layout: default
   {% assign posts = all_pinned | concat: all_normal %}
 {% endif %}
 
+{% assign home_like_config = site.home_like %}
+{% assign home_like_repo = home_like_config.repo %}
+{% if home_like_repo == nil or home_like_repo == '' %}
+  {% assign home_like_repo = site.github.username | append: '/' | append: site.github.username | append: '.github.io' %}
+{% endif %}
+{% assign home_like_issue_number = home_like_config.issue_number | default: 1 %}
+{% assign home_like_issue_url = home_like_config.issue_url %}
+{% if home_like_issue_url == nil or home_like_issue_url == '' %}
+  {% assign home_like_issue_url = 'https://github.com/' | append: home_like_repo | append: '/issues/' | append: home_like_issue_number %}
+{% endif %}
+
+<style>
+  .home-like-widget {
+    text-align: center;
+    padding: 0.75rem 0 1.25rem;
+  }
+
+  .home-like-button {
+    border: 0;
+    background: transparent;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+  }
+
+  .home-like-heart {
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #adb5bd;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .home-like-heart.liked {
+    color: #e03131;
+    transform: scale(1.06);
+  }
+
+  .home-like-action {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+  }
+
+  .home-like-count {
+    margin-top: 0.45rem;
+    font-size: 0.92rem;
+    color: var(--text-muted-color);
+  }
+</style>
+
+<div
+  id="home-like-widget"
+  class="home-like-widget"
+  data-api="https://api.github.com/repos/{{ home_like_repo }}/issues/{{ home_like_issue_number }}"
+  data-like-url="{{ home_like_issue_url }}"
+  data-storage-key="home-like-{{ home_like_repo | replace: '/', '-' }}-{{ home_like_issue_number }}"
+  data-like-label="{{ site.data.locales[lang].home_like.like }}"
+  data-liked-label="{{ site.data.locales[lang].home_like.liked }}"
+  data-loading-label="{{ site.data.locales[lang].home_like.loading }}"
+  data-failed-label="{{ site.data.locales[lang].home_like.failed }}"
+>
+  <button type="button" class="home-like-button" data-role="like-button" aria-pressed="false">
+    <span class="home-like-heart" data-role="heart">♥</span>
+    <span class="home-like-action" data-role="action-text">{{ site.data.locales[lang].home_like.like }}</span>
+  </button>
+  <div class="home-like-count">
+    <span>{{ site.data.locales[lang].home_like.count }}: </span>
+    <span data-role="count">{{ site.data.locales[lang].home_like.loading }}</span>
+  </div>
+</div>
+
 <div id="post-list" class="flex-grow-1 px-xl-1">
   {% for post in posts %}
     <article class="card-wrapper card">
@@ -144,3 +216,69 @@ layout: default
 {% if paginator and paginator.total_pages > 1 %}
   {% include post-paginator.html %}
 {% endif %}
+
+<script>
+  (() => {
+    const root = document.getElementById('home-like-widget');
+    if (!root) return;
+
+    const likeButton = root.querySelector('[data-role="like-button"]');
+    const heart = root.querySelector('[data-role="heart"]');
+    const actionText = root.querySelector('[data-role="action-text"]');
+    const countText = root.querySelector('[data-role="count"]');
+
+    const storageKey = root.dataset.storageKey;
+    const likeLabel = root.dataset.likeLabel;
+    const likedLabel = root.dataset.likedLabel;
+    const loadingLabel = root.dataset.loadingLabel;
+    const failedLabel = root.dataset.failedLabel;
+    const likeUrl = root.dataset.likeUrl;
+    const apiUrl = root.dataset.api;
+
+    const setLiked = (liked) => {
+      if (liked) {
+        heart.classList.add('liked');
+      } else {
+        heart.classList.remove('liked');
+      }
+      likeButton.setAttribute('aria-pressed', liked ? 'true' : 'false');
+      actionText.textContent = liked ? likedLabel : likeLabel;
+    };
+
+    let liked = window.localStorage.getItem(storageKey) === '1';
+    setLiked(liked);
+    countText.textContent = loadingLabel;
+
+    fetch(apiUrl, {
+      headers: {
+        Accept: 'application/vnd.github+json'
+      }
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('fetch-failed');
+        return response.json();
+      })
+      .then((data) => {
+        const reactions = data && data.reactions ? data.reactions : {};
+        const count = Number.isInteger(reactions.heart)
+          ? reactions.heart
+          : Number.isInteger(reactions['+1'])
+            ? reactions['+1']
+            : null;
+
+        countText.textContent = count === null ? failedLabel : String(count);
+      })
+      .catch(() => {
+        countText.textContent = failedLabel;
+      });
+
+    likeButton.addEventListener('click', () => {
+      if (!liked) {
+        liked = true;
+        window.localStorage.setItem(storageKey, '1');
+        setLiked(true);
+      }
+      window.open(likeUrl, '_blank', 'noopener');
+    });
+  })();
+</script>

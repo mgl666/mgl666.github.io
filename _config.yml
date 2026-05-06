@@ -20,6 +20,14 @@ baseurl: ""
 github:
   username: mgl666
 
+# 首页全站点赞（绑定到一个 GitHub Issue）
+home_like:
+  repo: mgl666/mgl666.github.io
+  issue_number: 1
+  # issue_url 留空会自动拼接为:
+  # https://github.com/<repo>/issues/<issue_number>
+  issue_url: ""
+
 # 作者与联系方式
 social:
   name: Guanlong Ma

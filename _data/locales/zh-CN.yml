@@ -51,6 +51,14 @@ notification:
   update_found: 发现新版本的内容。
   update: 更新
 
+home_like:
+  like: 点赞
+  liked: 已点赞
+  count: 点赞总数
+  loading: 读取中...
+  failed: 读取失败
+  action: 去 GitHub 点赞
+
 # ----- Posts related labels -----
 
 post:
