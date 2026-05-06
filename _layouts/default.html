@@ -39,10 +39,8 @@ layout: compress
             </div>
 
             {% for _include in layout.panel_includes %}
-              {% case _include %}
-                {% when 'toc' %}
-                  {% include toc.html lang=lang %}
-              {% endcase %}
+              {% assign _include_path = _include | append: '.html' %}
+              {% include {{ _include_path }} lang=lang %}
             {% endfor %}
           </aside>
         </div>
@@ -51,12 +49,8 @@ layout: compress
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
             {% for _include in layout.tail_includes %}
-              {% case _include %}
-                {% when 'related-posts' %}
-                  {% include related-posts.html lang=lang %}
-                {% when 'post-nav' %}
-                  {% include post-nav.html lang=lang %}
-              {% endcase %}
+              {% assign _include_path = _include | append: '.html' %}
+              {% include {{ _include_path }} lang=lang %}
             {% endfor %}
 
             {% include_cached footer.html lang=lang %}
@@ -85,10 +79,8 @@ layout: compress
     <!-- Embedded scripts -->
 
     {% for _include in layout.script_includes %}
-      {% case _include %}
-        {% when 'comment' %}
-          {% include comment.html %}
-      {% endcase %}
+      {% assign _include_path = _include | append: '.html' %}
+      {% include {{ _include_path }} %}
     {% endfor %}
 
     {% include_cached search-loader.html lang=lang %}

@@ -1,5 +1,5 @@
-# 主题（GitHub Pages 使用 remote_theme，避免本地 gem 解析失败）
-remote_theme: cotes2020/jekyll-theme-chirpy
+# 主题
+theme: jekyll-theme-chirpy
 
 # 站点默认语言与时区
 lang: en

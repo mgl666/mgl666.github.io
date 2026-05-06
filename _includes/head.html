@@ -126,15 +126,13 @@
     {% endif %}
 
     <!-- Web Analytics -->
-    {% if site.analytics.goatcounter.id and site.analytics.goatcounter.id != empty %}
-      {% include analytics/goatcounter.html %}
-    {% endif %}
-    {% if site.analytics.google.id and site.analytics.google.id != empty %}
-      {% include analytics/google.html %}
-    {% endif %}
-    {% if site.analytics.umami.id and site.analytics.umami.id != empty %}
-      {% include analytics/umami.html %}
-    {% endif %}
+    {% for analytics in site.analytics %}
+      {% capture str %}{{ analytics }}{% endcapture %}
+      {% assign platform = str | split: '{' | first %}
+      {% if site.analytics[platform].id and site.analytics[platform].id != empty %}
+        {% include analytics/{{ platform }}.html %}
+      {% endif %}
+    {% endfor %}
   {% endif %}
 
   {% include metadata-hook.html %}

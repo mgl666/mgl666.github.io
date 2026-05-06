@@ -79,7 +79,7 @@
     {% case provider %}
       {% when 'goatcounter' %}
         {% if site.analytics[provider].id != empty and site.analytics[provider].id %}
-          {% include pageviews/goatcounter.html %}
+          {% include pageviews/{{ provider }}.html %}
         {% endif %}
     {% endcase %}
   {% endif %}
