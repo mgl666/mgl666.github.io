@@ -1,0 +1,191 @@
+{% assign like_cfg = site.firebase.like %}
+
+<style>
+  .sidebar-like-widget {
+    width: 8rem;
+    margin: 0.8rem auto 0.2rem;
+  }
+
+  .sidebar-like-button {
+    border: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.1rem 0.15rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sidebar-like-button:disabled {
+    cursor: wait;
+    opacity: 0.72;
+  }
+
+  .sidebar-like-heart {
+    font-size: 1.35rem;
+    line-height: 1;
+    color: #adb5bd;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .sidebar-like-heart.liked {
+    color: #e03131;
+    transform: scale(1.08);
+  }
+
+  .sidebar-like-count {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--site-subtitle-color);
+    min-width: 1.5rem;
+    text-align: left;
+  }
+
+  @media (min-width: 576px) {
+    .sidebar-like-widget {
+      width: 8.5rem;
+    }
+  }
+</style>
+
+<div
+  id="home-like-widget"
+  class="sidebar-like-widget"
+  data-api-key="{{ like_cfg.api_key | escape }}"
+  data-auth-domain="{{ like_cfg.auth_domain | escape }}"
+  data-project-id="{{ like_cfg.project_id | escape }}"
+  data-app-id="{{ like_cfg.app_id | escape }}"
+  data-measurement-id="{{ like_cfg.measurement_id | escape }}"
+  data-storage-bucket="{{ like_cfg.storage_bucket | escape }}"
+  data-messaging-sender-id="{{ like_cfg.messaging_sender_id | escape }}"
+  data-collection="{{ like_cfg.collection | default: 'site_metrics' | escape }}"
+  data-document="{{ like_cfg.document | default: 'homepage' | escape }}"
+  data-field="{{ like_cfg.field | default: 'likes' | escape }}"
+  data-like-label="{{ site.data.locales[include.lang].home_like.like | escape }}"
+  data-liked-label="{{ site.data.locales[include.lang].home_like.liked | escape }}"
+  data-loading-label="{{ site.data.locales[include.lang].home_like.loading | escape }}"
+  data-failed-label="{{ site.data.locales[include.lang].home_like.failed | escape }}"
+  data-initializing-label="{{ site.data.locales[include.lang].home_like.initializing | escape }}"
+>
+  <button
+    type="button"
+    class="sidebar-like-button"
+    data-role="like-button"
+    aria-pressed="false"
+    aria-label="{{ site.data.locales[include.lang].home_like.like | escape }}"
+    title="{{ site.data.locales[include.lang].home_like.like | escape }}"
+  >
+    <span class="sidebar-like-heart" data-role="heart">♥</span>
+    <span class="sidebar-like-count" data-role="count">{{ site.data.locales[include.lang].home_like.initializing }}</span>
+  </button>
+</div>
+
+<script type="module">
+  (() => {
+    const root = document.getElementById('home-like-widget');
+    if (!root) return;
+
+    const requiredConfig = [root.dataset.apiKey, root.dataset.authDomain, root.dataset.projectId, root.dataset.appId];
+    if (requiredConfig.some((v) => !v)) {
+      root.style.display = 'none';
+      return;
+    }
+
+    const likeButton = root.querySelector('[data-role="like-button"]');
+    const heart = root.querySelector('[data-role="heart"]');
+    const countText = root.querySelector('[data-role="count"]');
+
+    const likedLabel = root.dataset.likedLabel;
+    const likeLabel = root.dataset.likeLabel;
+    const failedLabel = root.dataset.failedLabel;
+    const collectionName = root.dataset.collection;
+    const documentName = root.dataset.document;
+    const fieldName = root.dataset.field;
+
+    const firebaseConfig = {
+      apiKey: root.dataset.apiKey,
+      authDomain: root.dataset.authDomain,
+      projectId: root.dataset.projectId,
+      appId: root.dataset.appId,
+      measurementId: root.dataset.measurementId || undefined,
+      storageBucket: root.dataset.storageBucket || undefined,
+      messagingSenderId: root.dataset.messagingSenderId || undefined
+    };
+
+    const storageKey = `home-like-fb:${firebaseConfig.projectId}:${collectionName}:${documentName}:${fieldName}`;
+    let liked = window.localStorage.getItem(storageKey) === '1';
+    let currentCount = null;
+
+    const setLikedUI = (value) => {
+      liked = value;
+      likeButton.setAttribute('aria-pressed', value ? 'true' : 'false');
+      likeButton.title = value ? likedLabel : likeLabel;
+      heart.classList.toggle('liked', value);
+    };
+
+    const setLoading = (value) => {
+      likeButton.disabled = value;
+    };
+
+    const init = async () => {
+      setLikedUI(liked);
+      setLoading(true);
+      countText.textContent = root.dataset.initializingLabel;
+
+      try {
+        const [{ initializeApp }, { getFirestore, doc, getDoc, runTransaction }] = await Promise.all([
+          import('https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js'),
+          import('https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js')
+        ]);
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const docRef = doc(db, collectionName, documentName);
+
+        const snapshot = await getDoc(docRef);
+        const raw = snapshot.exists() ? snapshot.data()[fieldName] : 0;
+        currentCount = Number.isFinite(raw) ? raw : Number(raw) || 0;
+        countText.textContent = String(currentCount);
+
+        likeButton.addEventListener('click', async () => {
+          if (liked) return;
+
+          setLoading(true);
+          try {
+            const nextCount = await runTransaction(db, async (transaction) => {
+              const live = await transaction.get(docRef);
+              const liveCount = live.exists() ? Number(live.data()[fieldName]) || 0 : 0;
+              const updated = liveCount + 1;
+              const payload = { [fieldName]: updated, updated_at: Date.now() };
+
+              if (live.exists()) {
+                transaction.update(docRef, payload);
+              } else {
+                transaction.set(docRef, payload);
+              }
+
+              return updated;
+            });
+
+            currentCount = nextCount;
+            countText.textContent = String(currentCount);
+            setLikedUI(true);
+            window.localStorage.setItem(storageKey, '1');
+          } catch (_err) {
+            countText.textContent = failedLabel;
+          } finally {
+            setLoading(false);
+          }
+        });
+      } catch (_err) {
+        countText.textContent = failedLabel;
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    init();
+  })();
+</script>

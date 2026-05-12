@@ -1,0 +1,141 @@
+<!-- The Top Bar -->
+
+<header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
+  <div
+    id="topbar"
+    class="d-flex align-items-center justify-content-between px-lg-3 h-100"
+  >
+    {% assign current_lang = page.lang | default: site.lang | default: 'en' %}
+    {% assign home_url = '/' %}
+    {% if current_lang == 'zh-CN' %}
+      {% assign home_url = '/zh/' %}
+    {% endif %}
+    {% assign category_base_url = '/categories/' %}
+    {% if current_lang == 'zh-CN' %}
+      {% assign category_base_url = '/zh/categories/' %}
+    {% endif %}
+
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+      {% if page.layout == 'home' %}
+        <!-- index page -->
+        <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
+      {% else %}
+        <span>
+          <a href="{{ home_url | relative_url }}">
+            <span
+              id="breadcrumb-home-text"
+              data-en-label="{{ site.data.locales['en'].tabs.home | capitalize }}"
+              data-zh-label="{{ site.data.locales['zh-CN'].tabs.home | capitalize }}"
+            >
+              {{- site.data.locales[include.lang].tabs.home | capitalize -}}
+            </span>
+          </a>
+        </span>
+
+        {% if page.layout == 'category' %}
+          <span>
+            <a href="{{ category_base_url | relative_url }}">
+              <span
+                class="i18n-breadcrumb-categories"
+                data-en-label="{{ site.data.locales['en'].tabs.categories }}"
+                data-zh-label="{{ site.data.locales['zh-CN'].tabs.categories }}"
+              >
+                {{ site.data.locales[include.lang].tabs.categories }}
+              </span>
+            </a>
+          </span>
+          {%- capture _category_name -%}{% include category-name.html name=page.title lang=include.lang %}{%- endcapture -%}
+          {%- capture _category_name_en -%}{% include category-name.html name=page.title lang='en' %}{%- endcapture -%}
+          {%- capture _category_name_zh -%}{% include category-name.html name=page.title lang='zh-CN' %}{%- endcapture -%}
+          <span
+            class="i18n-breadcrumb-current-category"
+            data-en-label="{{ _category_name_en | strip | escape }}"
+            data-zh-label="{{ _category_name_zh | strip | escape }}"
+          >
+            {{ _category_name | strip }}
+          </span>
+        {% elsif page.layout == 'post' %}
+          {% assign post_category = page.categories | last %}
+          {% if post_category %}
+            <span>
+              <a href="{{ category_base_url | relative_url }}">
+                <span
+                  class="i18n-breadcrumb-categories"
+                  data-en-label="{{ site.data.locales['en'].tabs.categories }}"
+                  data-zh-label="{{ site.data.locales['zh-CN'].tabs.categories }}"
+                >
+                  {{ site.data.locales[include.lang].tabs.categories }}
+                </span>
+              </a>
+            </span>
+            {%- capture _post_category_name -%}{% include category-name.html name=post_category lang=include.lang %}{%- endcapture -%}
+            {%- capture _post_category_name_en -%}{% include category-name.html name=post_category lang='en' %}{%- endcapture -%}
+            {%- capture _post_category_name_zh -%}{% include category-name.html name=post_category lang='zh-CN' %}{%- endcapture -%}
+            {% assign post_category_slug = post_category | slugify | url_encode %}
+            <span>
+              <a
+                class="i18n-breadcrumb-current-category"
+                data-en-label="{{ _post_category_name_en | strip | escape }}"
+                data-zh-label="{{ _post_category_name_zh | strip | escape }}"
+                href="{{ category_base_url | append: post_category_slug | append: '/' | relative_url }}"
+              >
+                {{ _post_category_name | strip }}
+              </a>
+            </span>
+          {% endif %}
+          {%- capture _post_title -%}{% include post-title.html post=page lang=include.lang %}{%- endcapture -%}
+          <span>{{ _post_title | strip }}</span>
+        {% elsif page.collection == 'tabs' %}
+          {% assign segments = page.url | split: '/' %}
+          {% if current_lang == 'zh-CN' %}
+            {% assign tab_key = segments[2] %}
+          {% else %}
+            {% assign tab_key = segments[1] %}
+          {% endif %}
+          <span>{{ site.data.locales[include.lang].tabs[tab_key] | default: page.title }}</span>
+        {% else %}
+          <span>{{ page.title }}</span>
+        {% endif %}
+      {% endif %}
+    </nav>
+    <!-- endof #breadcrumb -->
+
+    <button type="button" id="sidebar-trigger" class="btn btn-link" aria-label="Sidebar">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+
+    <div
+      id="topbar-title"
+      data-en-label="{{ site.data.locales['en'].layout[page.layout] | default: page.layout | capitalize }}"
+      data-zh-label="{{ site.data.locales['zh-CN'].layout[page.layout] | default: page.layout | capitalize }}"
+    >
+      {% if page.layout == 'home' %}
+        {{- site.data.locales[include.lang].title | default: site.title -}}
+      {% elsif page.collection == 'tabs' or page.layout == 'page' %}
+        {%- capture tab_key -%}{{ page.url | split: '/' }}{%- endcapture -%}
+        {{- site.data.locales[include.lang].tabs[tab_key] | default: page.title -}}
+      {% else %}
+        {{- site.data.locales[include.lang].layout[page.layout] | default: page.layout | capitalize -}}
+      {% endif %}
+    </div>
+
+    <button type="button" id="search-trigger" class="btn btn-link" aria-label="Search">
+      <i class="fas fa-search fa-fw"></i>
+    </button>
+
+    <search id="search" class="align-items-center ms-3 ms-lg-0">
+      <i class="fas fa-search fa-fw"></i>
+      <input
+        class="form-control"
+        id="search-input"
+        type="search"
+        aria-label="search"
+        autocomplete="off"
+        placeholder="{{ site.data.locales[include.lang].search.hint | capitalize }}..."
+      >
+    </search>
+    <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">
+      {{- site.data.locales[include.lang].search.cancel -}}
+    </button>
+  </div>
+</header>

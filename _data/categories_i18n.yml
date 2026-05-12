@@ -1,0 +1,91 @@
+AI-气象:
+  en: AI-Meteorology
+  zh-CN: AI-气象
+
+AI气候预报:
+  en: AI Climate Forecast
+  zh-CN: AI气候预报
+
+AI短临预报:
+  en: AI Nowcasting
+  zh-CN: AI短临预报
+
+AI气象大模型:
+  en: AI Weather Model
+  zh-CN: AI气象大模型
+
+AI-CV:
+  en: AI-CV
+  zh-CN: AI-计算机视觉
+
+AI-LLM:
+  en: AI-LLM
+  zh-CN: AI-大语言模型
+
+机器学习:
+  en: Machine Learning
+  zh-CN: 机器学习
+
+深度学习（CV）:
+  en: Deep Learning (CV)
+  zh-CN: 深度学习（CV）
+
+深度学习（LLM）:
+  en: Deep Learning (LLM)
+  zh-CN: 深度学习（LLM）
+
+基础知识:
+  en: Basics
+  zh-CN: 基础知识
+
+CV基础知识:
+  en: Basics
+  zh-CN: 基础知识
+
+算法基础知识:
+  en: Basics
+  zh-CN: 基础知识
+
+论文:
+  en: Papers
+  zh-CN: 论文
+
+AI4S(气象):
+  en: AI4S (Meteorology)
+  zh-CN: AI4S(气象)
+
+短临降水预报:
+  en: Nowcasting Precipitation Forecast
+  zh-CN: 短临降水预报
+
+短期降水预报&偏差订正:
+  en: Short-range Precipitation Forecast & Bias Correction
+  zh-CN: 短期降水预报&偏差订正
+
+气象大模型:
+  en: Weather Foundation Models
+  zh-CN: 气象大模型
+
+S2S气象预报:
+  en: S2S Weather Forecast
+  zh-CN: S2S气象预报
+
+数据同化:
+  en: Data Assimilation
+  zh-CN: 数据同化
+
+集合预报:
+  en: Ensemble Forecast
+  zh-CN: 集合预报
+
+算法题:
+  en: Algorithm Problems
+  zh-CN: 算法题
+
+Hot100:
+  en: Hot100
+  zh-CN: Hot100
+
+剑指offer:
+  en: Sword Offer
+  zh-CN: 剑指offer

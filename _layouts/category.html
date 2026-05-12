@@ -1,0 +1,38 @@
+---
+layout: page
+# The Category layout
+---
+
+{% include lang.html %}
+
+<div id="page-category">
+  {% assign category_posts = page.posts %}
+  {% if category_posts == nil or category_posts == empty %}
+    {% assign category_posts = site.categories[page.title] %}
+  {% endif %}
+  {% if category_posts == nil %}
+    {% assign category_posts = '' | split: '' %}
+  {% endif %}
+
+  <h1 class="ps-lg-2">
+    <i class="far fa-folder-open fa-fw text-muted"></i>
+    {%- capture _category_name -%}{% include category-name.html name=page.title lang=lang %}{%- endcapture -%}
+    {{ _category_name | strip }}
+    <span class="lead text-muted ps-2">{{ category_posts | size }}</span>
+  </h1>
+
+  {% assign custom_sorted_posts = category_posts | where_exp: 'post', 'post.sort_order != nil' | sort: 'sort_order' %}
+  {% assign default_sorted_posts = category_posts | where_exp: 'post', 'post.sort_order == nil' %}
+  {% assign display_posts = custom_sorted_posts | concat: default_sorted_posts %}
+
+  <ul class="content ps-0">
+    {% for post in display_posts %}
+      {%- capture _post_title -%}{% include post-title.html post=post lang=lang %}{%- endcapture -%}
+      <li class="d-flex justify-content-between px-md-3">
+        <a href="{{ post.url | relative_url }}">{{ _post_title | strip }}</a>
+        <span class="dash flex-grow-1"></span>
+        {% include datetime.html date=post.date class='text-muted small text-nowrap' lang=lang %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>

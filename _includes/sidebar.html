@@ -1,0 +1,404 @@
+<!-- The Side Bar -->
+
+<aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper">
+    {% assign current_lang = page.lang | default: site.lang | default: 'en' %}
+    {% assign is_zh_page = false %}
+    {% if current_lang == 'zh-CN' %}
+      {% assign is_zh_page = true %}
+    {% endif %}
+
+    {% assign en_switch_url = page.url %}
+    {% assign zh_switch_url = page.url %}
+    {% assign current_path = page.url | default: '/' %}
+    {% assign switchable_lang_page = false %}
+
+    {% if current_path == '/' or current_path == '/zh/' %}
+      {% assign switchable_lang_page = true %}
+    {% elsif page.collection == 'tabs' %}
+      {% assign switchable_lang_page = true %}
+    {% elsif page.layout == 'category' %}
+      {% assign switchable_lang_page = true %}
+    {% endif %}
+
+    {% if current_path == '/zh/' %}
+      {% assign en_switch_url = '/' %}
+      {% assign zh_switch_url = '/zh/' %}
+    {% elsif current_path == '/' %}
+      {% assign en_switch_url = '/' %}
+      {% assign zh_switch_url = '/zh/' %}
+    {% elsif current_path contains '/zh/' %}
+      {% assign en_switch_url = current_path | replace_first: '/zh', '' %}
+      {% assign zh_switch_url = current_path %}
+    {% else %}
+      {% assign en_switch_url = current_path %}
+      {% assign zh_switch_url = '/zh' | append: current_path %}
+    {% endif %}
+
+    {% unless switchable_lang_page %}
+      {% assign en_switch_url = current_path %}
+      {% assign zh_switch_url = current_path %}
+    {% endunless %}
+
+    {% assign profile_home_url = '/' %}
+    {% if is_zh_page %}
+      {% assign profile_home_url = '/zh/' %}
+    {% endif %}
+
+    <a href="{{ profile_home_url | relative_url }}" id="avatar" class="rounded-circle">
+      {%- if site.avatar != empty and site.avatar -%}
+        {%- capture avatar_url -%}
+          {% include media-url.html src=site.avatar %}
+        {%- endcapture -%}
+        <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+      {%- endif -%}
+    </a>
+
+    {% if site.firebase.like.enabled %}
+      {% include home-like-firebase.html lang=include.lang %}
+    {% endif %}
+
+    <a
+      id="site-title-link"
+      class="site-title d-block"
+      href="{{ profile_home_url | relative_url }}"
+      data-en-url="{{ '/' | relative_url }}"
+      data-zh-url="{{ '/zh/' | relative_url }}"
+      data-en-text="{{ site.data.locales['en'].title | default: site.title }}"
+      data-zh-text="{{ site.data.locales['zh-CN'].title | default: site.title }}"
+    >
+      {{ site.data.locales[include.lang].title | default: site.title }}
+    </a>
+    <p
+      id="site-subtitle-text"
+      class="site-subtitle fst-italic mb-0"
+      data-en-text="{{ site.data.locales['en'].tagline | default: site.tagline }}"
+      data-zh-text="{{ site.data.locales['zh-CN'].tagline | default: site.tagline }}"
+    >
+      {{ site.data.locales[include.lang].tagline | default: site.tagline }}
+    </p>
+    <div
+      class="lang-switch mt-2"
+      data-current-path="{{ current_path }}"
+      data-en-url="{{ en_switch_url | relative_url }}"
+      data-zh-url="{{ zh_switch_url | relative_url }}"
+      data-switchable="{{ switchable_lang_page }}"
+    >
+      <a id="lang-switch-en" class="{% unless is_zh_page %}active{% endunless %}" href="{{ en_switch_url | relative_url }}">
+        English
+      </a>
+      <span aria-hidden="true">｜</span>
+      <a id="lang-switch-zh" class="{% if is_zh_page %}active{% endif %}" href="{{ zh_switch_url | relative_url }}">中文</a>
+    </div>
+
+    {% if site.social.email %}
+      <a class="profile-email mt-2" href="mailto:{{ site.social.email }}">
+        <i class="fas fa-envelope me-1"></i>{{ site.social.email }}
+      </a>
+    {% endif %}
+  </header>
+  <!-- .profile-wrapper -->
+
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
+      {% if current_lang == 'zh-CN' %}
+        {% assign home_url = '/zh/' %}
+      {% else %}
+        {% assign home_url = '/' %}
+      {% endif %}
+      <!-- home -->
+      <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
+        <a
+          id="nav-home-link"
+          href="{{ home_url | relative_url }}"
+          class="nav-link"
+          data-en-url="{{ '/' | relative_url }}"
+          data-zh-url="{{ '/zh/' | relative_url }}"
+        >
+          <i class="fa-fw fas fa-home"></i>
+          <span
+            id="nav-home-text"
+            data-en-label="{{ site.data.locales['en'].tabs.home | upcase }}"
+            data-zh-label="{{ site.data.locales['zh-CN'].tabs.home | upcase }}"
+          >
+            {{ site.data.locales[include.lang].tabs.home | upcase }}
+          </span>
+        </a>
+      </li>
+      <!-- the real tabs -->
+      {% for tab in site.tabs %}
+        {% assign tab_lang = tab.lang | default: 'en' %}
+        {% if tab_lang != current_lang %}
+          {% continue %}
+        {% endif %}
+        {% assign segments = tab.url | split: '/' %}
+        {% if tab_lang == 'zh-CN' %}
+          {% assign tab_key = segments[2] %}
+          {% assign en_tab_url = tab.url | replace_first: '/zh', '' %}
+          {% assign zh_tab_url = tab.url %}
+        {% else %}
+          {% assign tab_key = segments[1] %}
+          {% assign en_tab_url = tab.url %}
+          {% assign zh_tab_url = '/zh' | append: tab.url %}
+        {% endif %}
+        <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
+          <a
+            href="{{ tab.url | relative_url }}"
+            class="nav-link lang-nav-link"
+            data-en-url="{{ en_tab_url | relative_url }}"
+            data-zh-url="{{ zh_tab_url | relative_url }}"
+          >
+            <i class="fa-fw {{ tab.icon }}"></i>
+            <span
+              class="lang-nav-label"
+              data-en-label="{{ site.data.locales['en'].tabs[tab_key] | default: tab.title | upcase }}"
+              data-zh-label="{{ site.data.locales['zh-CN'].tabs[tab_key] | default: tab.title | upcase }}"
+            >
+              {{ site.data.locales[include.lang].tabs[tab_key] | default: tab.title | upcase }}
+            </span>
+          </a>
+        </li>
+        <!-- .nav-item -->
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
+    {% assign show_github_icon = false %}
+    {% if site.github.username %}
+      {% assign show_github_icon = true %}
+    {% endif %}
+    {% assign show_org_icon = false %}
+    {% for entry in site.data.contact %}
+      {% if entry.type == 'organization' and entry.url %}
+        {% assign show_org_icon = true %}
+      {% endif %}
+    {% endfor %}
+    {% assign show_bottom_icons = false %}
+    {% if show_github_icon or show_org_icon %}
+      {% assign show_bottom_icons = true %}
+    {% endif %}
+
+    {% unless site.theme_mode %}
+      <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
+        <i class="fas fa-adjust"></i>
+      </button>
+
+      {% if show_bottom_icons %}
+        <span class="icon-border"></span>
+      {% endif %}
+    {% endunless %}
+
+    {% for entry in site.data.contact %}
+      {% unless entry.type == 'github' or entry.type == 'organization' %}
+        {% continue %}
+      {% endunless %}
+      {% if entry.type == 'github' and show_github_icon == false %}
+        {% continue %}
+      {% endif %}
+      {%- assign url = null -%}
+
+      {% case entry.type %}
+        {% when 'github' %}
+          {%- unless site[entry.type].username -%}
+            {%- continue -%}
+          {%- endunless -%}
+          {%- capture url -%}
+            https://{{ entry.type }}.com/{{ site[entry.type].username }}
+          {%- endcapture -%}
+        {% when 'email' %}
+          {%- unless site.social.email -%}
+            {%- continue -%}
+          {%- endunless -%}
+          {%- assign email = site.social.email | split: '@' -%}
+          {%- capture url -%}
+            javascript:void(location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))
+          {%- endcapture -%}
+        {% when 'rss' %}
+          {% assign url = '/feed.xml' | relative_url %}
+        {% else %}
+          {% assign url = entry.url %}
+      {% endcase %}
+
+      {% if url %}
+        <a
+          href="{{ url }}"
+          aria-label="{{ entry.type }}"
+          {% assign link_types = '' %}
+
+          {% unless entry.noblank %}
+            target="_blank"
+            {% assign link_types = 'noopener noreferrer' %}
+          {% endunless %}
+
+          {% if entry.type == 'mastodon' %}
+            {% assign link_types = link_types | append: ' me' | strip %}
+          {% endif %}
+
+          {% unless link_types == empty %}
+            rel="{{ link_types }}"
+          {% endunless %}
+        >
+          <i class="{{ entry.icon }}"></i>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <!-- .sidebar-bottom -->
+</aside>
+<!-- #sidebar -->
+
+<script>
+  (() => {
+    const KEY = 'site_preferred_lang';
+    const langSwitch = document.querySelector('.lang-switch');
+    if (!langSwitch) return;
+
+    const currentPath = langSwitch.dataset.currentPath || '/';
+    const enUrl = langSwitch.dataset.enUrl;
+    const zhUrl = langSwitch.dataset.zhUrl;
+    const isSwitchable = langSwitch.dataset.switchable === 'true';
+    const currentLang = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en';
+
+    const normalize = (path) => {
+      if (!path) return '/';
+      return path.endsWith('/') ? path : `${path}/`;
+    };
+
+    const path = normalize(currentPath);
+    const isSwitchablePath = /^\/$|^\/cv\/$|^\/archives\/$|^\/categories\/$|^\/categories\/.+\/$|^\/zh\/$|^\/zh\/cv\/$|^\/zh\/archives\/$|^\/zh\/categories\/$|^\/zh\/categories\/.+\/$/.test(path);
+
+    const applyPreference = () => {
+      const preferred = window.localStorage.getItem(KEY);
+      if (!preferred || !isSwitchablePath) return;
+
+      if (preferred === 'zh-CN' && currentLang !== 'zh-CN' && zhUrl) {
+        window.location.replace(zhUrl);
+      } else if (preferred === 'en' && currentLang !== 'en' && enUrl) {
+        window.location.replace(enUrl);
+      }
+    };
+
+    const enLink = document.getElementById('lang-switch-en');
+    const zhLink = document.getElementById('lang-switch-zh');
+    const setActive = (lang) => {
+      if (enLink) enLink.classList.toggle('active', lang === 'en');
+      if (zhLink) zhLink.classList.toggle('active', lang === 'zh-CN');
+    };
+    const applyUiLanguage = (lang) => {
+      const siteTitleLink = document.getElementById('site-title-link');
+      const siteSubtitleText = document.getElementById('site-subtitle-text');
+      const navHomeLink = document.getElementById('nav-home-link');
+      const navHomeText = document.getElementById('nav-home-text');
+      const breadcrumbHomeText = document.getElementById('breadcrumb-home-text');
+      const breadcrumbCategories = Array.from(document.querySelectorAll('.i18n-breadcrumb-categories'));
+      const breadcrumbCurrentCategories = Array.from(document.querySelectorAll('.i18n-breadcrumb-current-category'));
+      const topbarTitle = document.getElementById('topbar-title');
+      const postTitle = document.getElementById('post-title');
+      const lastmodHeading = document.getElementById('access-lastmod-heading');
+      const postedLabels = Array.from(document.querySelectorAll('.i18n-posted-label'));
+      const updatedLabels = Array.from(document.querySelectorAll('.i18n-updated-label'));
+      const writtenByLabels = Array.from(document.querySelectorAll('.i18n-written-by-label'));
+      const pageviewMeasures = Array.from(document.querySelectorAll('.i18n-pageview-measure'));
+      const readtimeUnits = Array.from(document.querySelectorAll('.i18n-readtime-unit'));
+      const readtimePrompts = Array.from(document.querySelectorAll('.i18n-readtime-prompt'));
+      const postCategoryLinks = Array.from(document.querySelectorAll('.i18n-post-category-link'));
+      const lastmodLinks = Array.from(document.querySelectorAll('.lastmod-post-link'));
+      const navLinks = Array.from(document.querySelectorAll('.lang-nav-link'));
+      const navLabels = Array.from(document.querySelectorAll('.lang-nav-label'));
+
+      document.documentElement.lang = lang;
+      if (siteTitleLink) {
+        siteTitleLink.textContent = lang === 'zh-CN' ? siteTitleLink.dataset.zhText : siteTitleLink.dataset.enText;
+        siteTitleLink.href = lang === 'zh-CN' ? siteTitleLink.dataset.zhUrl : siteTitleLink.dataset.enUrl;
+      }
+      if (siteSubtitleText) {
+        siteSubtitleText.textContent = lang === 'zh-CN' ? siteSubtitleText.dataset.zhText : siteSubtitleText.dataset.enText;
+      }
+      if (navHomeLink) {
+        navHomeLink.href = lang === 'zh-CN' ? navHomeLink.dataset.zhUrl : navHomeLink.dataset.enUrl;
+      }
+      if (navHomeText) {
+        navHomeText.textContent = lang === 'zh-CN' ? navHomeText.dataset.zhLabel : navHomeText.dataset.enLabel;
+      }
+      if (breadcrumbHomeText) {
+        breadcrumbHomeText.textContent = lang === 'zh-CN' ? breadcrumbHomeText.dataset.zhLabel : breadcrumbHomeText.dataset.enLabel;
+      }
+      breadcrumbCategories.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      breadcrumbCurrentCategories.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      if (topbarTitle) {
+        topbarTitle.textContent = lang === 'zh-CN' ? topbarTitle.dataset.zhLabel : topbarTitle.dataset.enLabel;
+      }
+      navLinks.forEach((link) => {
+        link.href = lang === 'zh-CN' ? link.dataset.zhUrl : link.dataset.enUrl;
+      });
+      navLabels.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      if (postTitle) {
+        postTitle.textContent = lang === 'zh-CN' ? postTitle.dataset.zhTitle : postTitle.dataset.enTitle;
+      }
+      if (lastmodHeading) {
+        lastmodHeading.textContent = lang === 'zh-CN' ? lastmodHeading.dataset.zhLabel : lastmodHeading.dataset.enLabel;
+      }
+      postedLabels.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      updatedLabels.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      writtenByLabels.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      pageviewMeasures.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      readtimeUnits.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      readtimePrompts.forEach((label) => {
+        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
+      });
+      postCategoryLinks.forEach((link) => {
+        link.textContent = lang === 'zh-CN' ? link.dataset.zhName : link.dataset.enName;
+      });
+      lastmodLinks.forEach((link) => {
+        link.textContent = lang === 'zh-CN' ? link.dataset.zhTitle : link.dataset.enTitle;
+      });
+    };
+
+    if (enLink) {
+      enLink.addEventListener('click', (event) => {
+        window.localStorage.setItem(KEY, 'en');
+        setActive('en');
+        applyUiLanguage('en');
+        if (!isSwitchable) {
+          event.preventDefault();
+        }
+      });
+    }
+
+    if (zhLink) {
+      zhLink.addEventListener('click', (event) => {
+        window.localStorage.setItem(KEY, 'zh-CN');
+        setActive('zh-CN');
+        applyUiLanguage('zh-CN');
+        if (!isSwitchable) {
+          event.preventDefault();
+        }
+      });
+    }
+
+    const preferred = window.localStorage.getItem(KEY);
+    if (!isSwitchable && preferred) {
+      setActive(preferred);
+      applyUiLanguage(preferred);
+    }
+
+    applyPreference();
+  })();
+</script>

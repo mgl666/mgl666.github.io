@@ -1,0 +1,184 @@
+---
+layout: default
+panel_includes:
+  - toc
+script_includes:
+  - comment
+---
+
+{% include lang.html %}
+
+{% include toc-status.html %}
+
+{% capture _page_title_en %}{% include post-title.html post=page lang='en' %}{% endcapture %}
+{% capture _page_title_zh %}{% include post-title.html post=page lang='zh-CN' %}{% endcapture %}
+
+<article class="px-1" data-toc="{{ enable_toc }}">
+  <header>
+    {%- capture _page_title -%}{% include post-title.html post=page lang=lang %}{%- endcapture -%}
+    <h1
+      id="post-title"
+      data-toc-skip
+      data-en-title="{{ _page_title_en | strip | escape }}"
+      data-zh-title="{{ _page_title_zh | strip | escape }}"
+    >
+      {{ _page_title | strip }}
+    </h1>
+    {% if page.description %}
+      <p class="post-desc fw-light mb-4">{{ page.description }}</p>
+    {% endif %}
+
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        <span
+          class="i18n-posted-label"
+          data-en-label="{{ site.data.locales['en'].post.posted }}"
+          data-zh-label="{{ site.data.locales['zh-CN'].post.posted }}"
+        >
+          {{ site.data.locales[lang].post.posted }}
+        </span>
+        {% include datetime.html date=page.date tooltip=true lang=lang %}
+      </span>
+
+      <!-- lastmod date -->
+      {% if page.last_modified_at and page.last_modified_at != page.date %}
+        <span>
+          <span
+            class="i18n-updated-label"
+            data-en-label="{{ site.data.locales['en'].post.updated }}"
+            data-zh-label="{{ site.data.locales['zh-CN'].post.updated }}"
+          >
+            {{ site.data.locales[lang].post.updated }}
+          </span>
+          {% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}
+        </span>
+      {% endif %}
+
+      {% if page.image %}
+        {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
+        {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
+        {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
+
+        {% if page.image.lqip %}
+          {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
+        {% endif %}
+
+        <div class="mt-3 mb-3">
+          <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
+          {%- if page.image.alt -%}
+            <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
+          {%- endif -%}
+        </div>
+      {% endif %}
+
+      <div class="d-flex justify-content-between">
+        <!-- author(s) -->
+        <span>
+          {% if page.author %}
+            {% assign authors = page.author %}
+          {% elsif page.authors %}
+            {% assign authors = page.authors %}
+          {% endif %}
+
+          <span
+            class="i18n-written-by-label"
+            data-en-label="{{ site.data.locales['en'].post.written_by }}"
+            data-zh-label="{{ site.data.locales['zh-CN'].post.written_by }}"
+          >
+            {{ site.data.locales[lang].post.written_by }}
+          </span>
+
+          <em>
+            {% if authors %}
+              {% for author in authors %}
+                {% if site.data.authors[author].url -%}
+                  <a href="{{ site.data.authors[author].url }}">{{ site.data.authors[author].name }}</a>
+                {%- else -%}
+                  {{ site.data.authors[author].name }}
+                {%- endif %}
+                {% unless forloop.last %}{{ '</em>, <em>' }}{% endunless %}
+              {% endfor %}
+            {% else %}
+              <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>
+            {% endif %}
+          </em>
+        </span>
+
+        <div>
+          <!-- pageviews -->
+          {% if site.pageviews.provider and site.analytics[site.pageviews.provider].id %}
+            <span>
+              <em id="pageviews">
+                <i class="fas fa-spinner fa-spin small"></i>
+              </em>
+              <span
+                class="i18n-pageview-measure"
+                data-en-label="{{ site.data.locales['en'].post.pageview_measure }}"
+                data-zh-label="{{ site.data.locales['zh-CN'].post.pageview_measure }}"
+              >
+                {{ site.data.locales[lang].post.pageview_measure }}
+              </span>
+            </span>
+          {% endif %}
+
+          <!-- read time -->
+          {% include read-time.html content=content prompt=true lang=lang %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {% if enable_toc %}
+    <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
+      <span class="label text-truncate">{{ _page_title | strip }}</span>
+      <button type="button" class="toc-trigger btn me-1">
+        <i class="fa-solid fa-list-ul fa-fw"></i>
+      </button>
+    </div>
+
+    <button id="toc-solo-trigger" type="button" class="toc-trigger btn btn-outline-secondary btn-sm">
+      <span class="label ps-2 pe-1">{{- site.data.locales[lang].panel.toc -}}</span>
+      <i class="fa-solid fa-angle-right fa-fw"></i>
+    </button>
+
+    <dialog id="toc-popup" class="p-0">
+      <div class="header d-flex flex-row align-items-center justify-content-between">
+      <div class="label text-truncate py-2 ms-4">{{- _page_title | strip -}}</div>
+        <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
+          <i class="fas fa-close"></i>
+        </button>
+      </div>
+      <div id="toc-popup-content" class="px-4 py-3 pb-4"></div>
+    </dialog>
+  {% endif %}
+
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
+    {% if page.categories.size > 0 %}
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        {% for category in page.categories %}
+          {%- capture _category_name -%}{% include category-name.html name=category lang=lang %}{%- endcapture -%}
+          {%- capture _category_name_en -%}{% include category-name.html name=category lang='en' %}{%- endcapture -%}
+          {%- capture _category_name_zh -%}{% include category-name.html name=category lang='zh-CN' %}{%- endcapture -%}
+          <a
+            class="i18n-post-category-link"
+            data-en-name="{{ _category_name_en | strip | escape }}"
+            data-zh-name="{{ _category_name_zh | strip | escape }}"
+            href="{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/"
+          >
+            {{ _category_name | strip }}
+          </a>
+          {%- unless forloop.last -%},{%- endunless -%}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+  <!-- div.post-tail-wrapper -->
+</article>
