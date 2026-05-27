@@ -20,9 +20,13 @@ order: 1
 
 ## <i class="fas fa-file-alt"></i> **Publications**
 
-- > To be updated.
+- [1] **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Accepted.
+
+- [2] Zhao, Y., Niu, P., Zhou, T., Ma, Z., **Ma, G.**, Jin, R., Yuan, H., & Sun, L. (2026). Pushing the Limits of High-Resolution Weather Forecasting through Data Scaling. In European Conference on Computer Vision. Under Review.
 
 ## <i class="fas fa-lightbulb"></i> **Patents**
+
+- Published a Chinese invention patent as the first inventor: *A Self-Supervised Learning-Based Training Method and System for Spatial Downscaling of Meteorological Data*, Application No. `2025111524761`
 
 - Published an invention patent as the first inventor: *An Intelligent Recognition Method for Millimeter-Wave Cloud Radar Echoes Based on KAN Networks*, Patent No. `ZL202510281809.4`
 
@@ -40,15 +44,16 @@ order: 1
 
 ## <i class="fas fa-flask"></i> **Research Experience**
 
-- Jiangsu Provincial Graduate Research and Practice Innovation Program, *Research on Spatial Downscaling Methods Based on Deep Learning*  
-  2024.04 – 2025.06; Principal Investigator: Guanlong Ma; “Mobile Light – Digital Intelligence Innovation” Project
+### Research Projects
 
-- Guanlong Ma, Huiling Yuan. *Self-Supervised Learning for Spatial Downscaling of Meteorological Variables*.  
-  Oral Presentation, the 3rd China Digital Earth Conference, Suzhou, Jiangsu, China, 2024.05.01–02.
+- [1] Jiangsu Provincial Graduate Research and Practice Innovation Program: Research on Spatial Downscaling Methods Based on Deep Learning (KYCX24_0208; 2024.04-2025.06; PI: Guanlong Ma)
 
-- Guanlong Ma, Huiling Yuan. *Deep Learning-Based Downscaling Using Internal Statistics of Meteorological Fields*.  
-  Poster Presentation, the 4th Nanjing University Doctoral Interdisciplinary Innovation Forum, Nanjing, Jiangsu, China, 2024.05.30.
+- [2] Key Project of the NSFC Meteorological Joint Fund: Research on Machine Learning Algorithms for Refined Meteorological Service Support in the Yangtze River Delta (U2342218; 2024.01-2027.12; PI: Huiling Yuan)
 
-- Guanlong Ma, Yang Zhao, Huiling Yuan. *Multi-Source Data-Based 72-Hour High-Resolution Precipitation Forecasting*.  
-  “AI-Empowered Hydrological Models and Intelligent Decision-Making for the Future” Academic Innovation Forum, Nanjing, Jiangsu, China, 2025.11.01.  
-  Best Poster Presentation.
+### Academic Conferences
+
+- Guanlong Ma, Huiling Yuan. *Self-Supervised Learning for Spatial Downscaling of Meteorological Variables*. Oral Presentation, the 3rd China Digital Earth Conference, Suzhou, Jiangsu, China, 2024.05.01–02.
+
+- Guanlong Ma, Huiling Yuan. *Deep Learning-Based Downscaling Using Internal Statistics of Meteorological Fields*. Poster Presentation, the 4th Nanjing University Doctoral Interdisciplinary Innovation Forum, Nanjing, Jiangsu, China, 2024.05.30.
+
+- Guanlong Ma, Yang Zhao, Huiling Yuan. *Multi-Source Data-Based 72-Hour High-Resolution Precipitation Forecasting*. “AI-Empowered Hydrological Models and Intelligent Decision-Making for the Future” Academic Innovation Forum, Nanjing, Jiangsu, China, 2025.11.01. Best Poster Presentation.
