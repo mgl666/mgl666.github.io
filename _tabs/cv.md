@@ -20,9 +20,9 @@ order: 1
 
 ## <i class="fas fa-file-alt"></i> **Publications**
 
-- [1] **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Accepted.
+- **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Accepted.
 
-- [2] Zhao, Y., Niu, P., Zhou, T., Ma, Z., **Ma, G.**, Jin, R., Yuan, H., & Sun, L. (2026). Pushing the Limits of High-Resolution Weather Forecasting through Data Scaling. In European Conference on Computer Vision. Under Review.
+- Zhao, Y., Niu, P., Zhou, T., Ma, Z., **Ma, G.**, Jin, R., Yuan, H., & Sun, L. (2026). Pushing the Limits of High-Resolution Weather Forecasting through Data Scaling. In European Conference on Computer Vision. Under Review.
 
 ## <i class="fas fa-lightbulb"></i> **Patents**
 
@@ -46,9 +46,9 @@ order: 1
 
 ### Research Projects
 
-- [1] Jiangsu Provincial Graduate Research and Practice Innovation Program: Research on Spatial Downscaling Methods Based on Deep Learning (KYCX24_0208; 2024.04-2025.06; PI: Guanlong Ma)
+- Jiangsu Provincial Graduate Research and Practice Innovation Program: Research on Spatial Downscaling Methods Based on Deep Learning (2024.04-2025.06; PI: Guanlong Ma)
 
-- [2] Key Project of the NSFC Meteorological Joint Fund: Research on Machine Learning Algorithms for Refined Meteorological Service Support in the Yangtze River Delta (U2342218; 2024.01-2027.12; PI: Huiling Yuan)
+- Key Project of the NSFC Meteorological Joint Fund: Research on Machine Learning Algorithms for Refined Meteorological Service Support in the Yangtze River Delta (2024.01-2027.12; PI: Huiling Yuan)
 
 ### Academic Conferences
 

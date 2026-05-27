@@ -20,9 +20,9 @@ order: 1
 - 阿里巴巴达摩院，智能决策，AI算法工程师，2025.07 - 2026.03（实习）
 
 ## <i class="fas fa-file-alt"></i>  **论文**
-- [1] **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Accepted (CCF-A).
+- **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Accepted.
 
-- [2] Zhao, Y., Niu, P., Zhou, T., Ma, Z., **Ma, G.**, Jin, R., Yuan, H., & Sun, L. (2026). Pushing the Limits of High-Resolution Weather Forecasting through Data Scaling. ECCV，审稿中。
+- Zhao, Y., Niu, P., Zhou, T., Ma, Z., **Ma, G.**, Jin, R., Yuan, H., & Sun, L. (2026). Pushing the Limits of High-Resolution Weather Forecasting through Data Scaling. In European Conference on Computer Vision. 审稿中。
 
 ## <i class="fas fa-lightbulb"></i>  **发明专利**
 
@@ -46,9 +46,9 @@ order: 1
 
 ### 科研项目
 
-- [1] 江苏省研究生科研与实践创新计划项目：基于深度学习的空间降尺度方法研究（2024.04-2025.06；主持人：马冠龙）
+- 江苏省研究生科研与实践创新计划项目：基于深度学习的空间降尺度方法研究（2024.04-2025.06；主持人：马冠龙）
 
-- [2] 国家自然科学基金气象联合基金重点基金项目：面向长三角地区精细化气象保障服务的机器学习算法研究（2024.01-2027.12；主持人：袁慧玲）
+- 国家自然科学基金气象联合基金重点基金项目：面向长三角地区精细化气象保障服务的机器学习算法研究（2024.01-2027.12；主持人：袁慧玲）
 
 ### 学术会议
 
