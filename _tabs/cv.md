@@ -34,9 +34,9 @@ order: 1
 
 ## <i class="fas fa-trophy"></i> **Competition Awards**
 
-- First Prize, Special Challenge Track, the 19th “Challenge Cup” National College Students’ Extracurricular Academic Science and Technology Works Competition, 2024.12
+- First Prize, Special Challenge Track, the 19th “Challenge Cup” National College Students’ Extracurricular Academic Science and Technology Works Competition, Team Leader, 2024.12
 
-- 2nd Place, Earth Science Track, the 3rd World Scientific Intelligence Competition, 2025.07
+- 2nd Place, Earth Science Track, the 3rd World Scientific Intelligence Competition, Team Leader, 2025.07
 
 - Second Prize, the 20th “Huawei Cup” China Graduate Mathematical Modeling Competition, 2023.12
 
