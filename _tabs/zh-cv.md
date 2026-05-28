@@ -54,9 +54,9 @@ order: 1
 
 - 袁慧玲, **马冠龙**, 赵阳. RainCast: 高分辨率72小时短期降水预测AI模型. 口头报告, 第二届集合预报预测学术研讨会, 云南大理, 2026.05.09–12.
 
-- **马冠龙**, 赵阳, 袁慧玲. 多源数据72小时高分辨率降水预报. 海报, "AI赋能水文模型, 智能决策新未来"学术创新论坛, 江苏南京, 2025.11.01. (最佳展板报告)
+- Yuan, H., **Ma, G.** Data-Constrained Downscaling of Meteorological Fields for Extreme Weather Diagnostics. Poster, The 106th American Meteorological Society Annual Meeting, Houston, Texas, USA, 2026.01.25–29.
 
-- Yuan, H., **Ma, G.** Data-Constrained Downscaling of Meteorological Fields for Extreme Weather Diagnostics. Poster, The 106th American Meteorological Society Annual Meeting, Houston, Texas, USA, 2025.01.25–29.
+- **马冠龙**, 赵阳, 袁慧玲. 多源数据72小时高分辨率降水预报. 海报, "AI赋能水文模型, 智能决策新未来"学术创新论坛, 江苏南京, 2025.11.01. (最佳展板报告)
 
 - **马冠龙**, 袁慧玲. 基于气象场内部统计的深度学习降尺度. 海报, 第四届南京大学博士生学科交叉创新论坛, 江苏南京, 2024.05.30.
 

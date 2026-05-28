@@ -52,12 +52,12 @@ order: 1
 
 ### Academic Conferences
 
-- Huiling Yuan, **Ma, G.**, Yang Zhao. RainCast: A High-Resolution 72-Hour Short-Term Precipitation Forecasting AI Model. The 2nd Academic Symposium on Ensemble Forecasting and Prediction, Dali, Yunnan, China, 2026.05.09–12.
+- Huiling Yuan, **Ma, G.**, Yang Zhao. RainCast: A High-Resolution 72-Hour Short-Term Precipitation Forecasting AI Model. Oral Presentation, The 2nd Academic Symposium on Ensemble Forecasting and Prediction, Dali, Yunnan, China, 2026.05.09–12.
 
-- **Ma, G.**, Yang Zhao, Huiling Yuan. Multi-Source Data-Based 72-Hour High-Resolution Precipitation Forecasting. “AI-Empowered Hydrological Models and Intelligent Decision-Making for the Future” Academic Innovation Forum, Nanjing, Jiangsu, China, 2025.11.01. (Best Poster Presentation)
+- Yuan, H., **Ma, G.** Data-Constrained Downscaling of Meteorological Fields for Extreme Weather Diagnostics. Poster Presentation, The 106th American Meteorological Society Annual Meeting, Houston, Texas, USA, 2026.01.25–29.
 
-- Yuan, H., **Ma, G.** Data-Constrained Downscaling of Meteorological Fields for Extreme Weather Diagnostics. The 106th American Meteorological Society Annual Meeting (Poster), Houston, Texas, USA, 2025.01.25–29.
+- **Ma, G.**, Yang Zhao, Huiling Yuan. Multi-Source Data-Based 72-Hour High-Resolution Precipitation Forecasting. Poster Presentation (Best Poster Presentation), “AI-Empowered Hydrological Models and Intelligent Decision-Making for the Future” Academic Innovation Forum, Nanjing, Jiangsu, China, 2025.11.01.
 
-- **Ma, G.**, Huiling Yuan. Deep Learning-Based Downscaling Using Internal Statistics of Meteorological Fields. Poster Presentation, the 4th Nanjing University Doctoral Interdisciplinary Innovation Forum, Nanjing, Jiangsu, China, 2024.05.30.
+- **Ma, G.**, Huiling Yuan. Deep Learning-Based Downscaling Using Internal Statistics of Meteorological Fields. Poster Presentation, The 4th Nanjing University Doctoral Interdisciplinary Innovation Forum, Nanjing, Jiangsu, China, 2024.05.30.
 
-- **Ma, G.**, Huiling Yuan. Self-Supervised Learning for Spatial Downscaling of Meteorological Variables. Oral Presentation, the 3rd China Digital Earth Conference, Suzhou, Jiangsu, China, 2024.05.01–02.
+- **Ma, G.**, Huiling Yuan. Self-Supervised Learning for Spatial Downscaling of Meteorological Variables. Oral Presentation, The 3rd China Digital Earth Conference, Suzhou, Jiangsu, China, 2024.05.01–02.
