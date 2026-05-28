@@ -15,9 +15,9 @@ order: 1
 
 ## <i class="fas fa-briefcase"></i> **工作经历**
 
-- 华为技术有限公司，云计算BU，AI算法工程师，2024.08 - 2024.11（实习）
-
 - 阿里巴巴达摩院，智能决策，AI算法工程师，2025.07 - 2026.03（实习）
+
+- 华为技术有限公司，云计算BU，AI算法工程师，2024.08 - 2024.11（实习）
 
 ## <i class="fas fa-file-alt"></i>  **论文**
 - **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Accepted.
@@ -34,13 +34,13 @@ order: 1
 
 ## <i class="fas fa-trophy"></i>  **竞赛奖励**
 
-- 第十九届“挑战杯”全国大学生课外学术科技作品竞赛揭榜挂帅专项赛，一等奖，队长，2024.12
-
 - 第三届世界科学智能大赛地球科学赛道，第 2 名，队长，2025.07
 
-- 第二十届“华为杯”中国研究生数学建模竞赛，二等奖，2023.12
+- 第十九届“挑战杯”全国大学生课外学术科技作品竞赛揭榜挂帅专项赛，一等奖，队长，2024.12
 
 - 第十五届“蓝桥杯”Python 研究生组江苏赛区，二等奖，2024.05
+
+- 第二十届“华为杯”中国研究生数学建模竞赛，二等奖，2023.12
 
 ## <i class="fas fa-flask"></i> **科研经历**
 
@@ -52,8 +52,12 @@ order: 1
 
 ### 学术会议
 
-- 马冠龙, 袁慧玲. 基于自监督学习的气象变量空间降尺度研究. 口头报告，第三届中国数字地球大会，江苏苏州，2024.05.01–02.
+- 袁慧玲, **马冠龙**, 赵阳. RainCast: 高分辨率72小时短期降水预测AI模型. 第二届集合预报预测学术研讨会，云南大理，2026.05.09–12.
+
+- 马冠龙, 赵阳, 袁慧玲. 多源数据72小时高分辨率降水预报. “AI赋能水文模型，智能决策新未来”学术创新论坛，江苏南京，2025.11.01。（最佳展板报告）
+
+- Yuan H., **Ma G.** Data-Constrained Downscaling of Meteorological Fields for Extreme Weather Diagnostics. The 106th American Meteorological Society Annual Meeting (Poster), Houston, Texas, USA, 2025.01.25–29.
 
 - 马冠龙, 袁慧玲. 基于气象场内部统计的深度学习降尺度. 海报，第四届南京大学博士生学科交叉创新论坛，江苏南京，2024.05.30.
 
-- 马冠龙, 赵阳, 袁慧玲. 多源数据72小时高分辨率降水预报. “AI赋能水文模型，智能决策新未来”学术创新论坛，江苏南京，2025.11.01。（最佳展板报告）
+- 马冠龙, 袁慧玲. 基于自监督学习的气象变量空间降尺度研究. 口头报告，第三届中国数字地球大会，江苏苏州，2024.05.01–02.
