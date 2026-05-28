@@ -46,18 +46,18 @@ order: 1
 
 ### Research Projects
 
-- Jiangsu Provincial Graduate Research and Practice Innovation Program: Research on Spatial Downscaling Methods Based on Deep Learning (2024.04–2025.06; PI: **Guanlong Ma**)
+- Jiangsu Provincial Graduate Research and Practice Innovation Program: Research on Spatial Downscaling Methods Based on Deep Learning (2024.04–2025.06; PI: **Ma, G.**)
 
 - Key Project of the NSFC Meteorological Joint Fund: Research on Machine Learning Algorithms for Refined Meteorological Service Support in the Yangtze River Delta (2024.01–2027.12; PI: Huiling Yuan)
 
 ### Academic Conferences
 
-- Huiling Yuan, **Guanlong Ma**, Yang Zhao. RainCast: A High-Resolution 72-Hour Short-Term Precipitation Forecasting AI Model. The 2nd Academic Symposium on Ensemble Forecasting and Prediction, Dali, Yunnan, China, 2026.05.09–12.
+- Huiling Yuan, **Ma, G.**, Yang Zhao. RainCast: A High-Resolution 72-Hour Short-Term Precipitation Forecasting AI Model. The 2nd Academic Symposium on Ensemble Forecasting and Prediction, Dali, Yunnan, China, 2026.05.09–12.
 
-- **Guanlong Ma**, Yang Zhao, Huiling Yuan. Multi-Source Data-Based 72-Hour High-Resolution Precipitation Forecasting. “AI-Empowered Hydrological Models and Intelligent Decision-Making for the Future” Academic Innovation Forum, Nanjing, Jiangsu, China, 2025.11.01. (Best Poster Presentation)
+- **Ma, G.**, Yang Zhao, Huiling Yuan. Multi-Source Data-Based 72-Hour High-Resolution Precipitation Forecasting. “AI-Empowered Hydrological Models and Intelligent Decision-Making for the Future” Academic Innovation Forum, Nanjing, Jiangsu, China, 2025.11.01. (Best Poster Presentation)
 
 - Yuan, H., **Ma, G.** Data-Constrained Downscaling of Meteorological Fields for Extreme Weather Diagnostics. The 106th American Meteorological Society Annual Meeting (Poster), Houston, Texas, USA, 2025.01.25–29.
 
-- **Guanlong Ma**, Huiling Yuan. Deep Learning-Based Downscaling Using Internal Statistics of Meteorological Fields. Poster Presentation, the 4th Nanjing University Doctoral Interdisciplinary Innovation Forum, Nanjing, Jiangsu, China, 2024.05.30.
+- **Ma, G.**, Huiling Yuan. Deep Learning-Based Downscaling Using Internal Statistics of Meteorological Fields. Poster Presentation, the 4th Nanjing University Doctoral Interdisciplinary Innovation Forum, Nanjing, Jiangsu, China, 2024.05.30.
 
-- **Guanlong Ma**, Huiling Yuan. Self-Supervised Learning for Spatial Downscaling of Meteorological Variables. Oral Presentation, the 3rd China Digital Earth Conference, Suzhou, Jiangsu, China, 2024.05.01–02.
+- **Ma, G.**, Huiling Yuan. Self-Supervised Learning for Spatial Downscaling of Meteorological Variables. Oral Presentation, the 3rd China Digital Earth Conference, Suzhou, Jiangsu, China, 2024.05.01–02.
