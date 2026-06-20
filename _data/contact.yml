@@ -1,4 +1,4 @@
-# 侧边栏底部联系方式（当前仅保留 GitHub + 邮箱）
+# 侧边栏底部联系方式
 # 图标名称来自 Font Awesome: https://fontawesome.com
 
 - type: github
@@ -7,6 +7,10 @@
 - type: organization
   icon: "fas fa-sitemap"
   url: "https://njuhml.github.io/"
+
+- type: google-scholar
+  icon: "fas fa-graduation-cap"
+  url: "https://scholar.google.com/citations?user=twkDSWwAAAAJ&hl=en&oi=ao"
 
 - type: email
   icon: "fas fa-envelope"

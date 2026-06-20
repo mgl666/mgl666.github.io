@@ -1,12 +1,7 @@
 <!-- The paginator for post list on HomePage. -->
 
 <nav aria-label="Page Navigation">
-  {% assign home_max_pages = 2 %}
-  {% if paginator.total_pages > home_max_pages %}
-    {% assign total_pages = home_max_pages %}
-  {% else %}
-    {% assign total_pages = paginator.total_pages %}
-  {% endif %}
+  {% assign total_pages = paginator.total_pages %}
 
   <ul class="pagination align-items-center mt-4 mb-0">
     <!-- left arrow -->
@@ -54,7 +49,7 @@
         <li class="page-item {% if i == paginator.page %} active{% endif %}">
           <a
             class="page-link"
-            href="{% if i > 1 %}{{ site.paginate_path | replace: ':num', i | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"
+            href="{% if i > 1 %}{{ paginator.page_path_template | replace: ':num', i | relative_url }}{% else %}{{ paginator.first_page_path | relative_url }}{% endif %}"
           >
             {{- i -}}
           </a>
