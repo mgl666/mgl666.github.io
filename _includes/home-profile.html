@@ -13,9 +13,9 @@
           {% endif %}
           {% if item.title %}<h2>{{ item.title }}</h2>{% endif %}
           {% if item.topics and item.topics.size > 0 %}
-            <p class="home-profile-highlight-topics">
-              {% for topic in item.topics %}{{ topic }}{% unless forloop.last %}, {% endunless %}{% endfor %}
-            </p>
+            <ul class="home-profile-highlight-topics">
+              {% for topic in item.topics %}<li>{{ topic }}</li>{% endfor %}
+            </ul>
           {% endif %}
         </article>
       {% endfor %}
