@@ -1,0 +1,29 @@
+{% assign profile = site.data.home_profile[include.lang] | default: site.data.home_profile.en %}
+
+<section class="home-profile px-xl-1" aria-labelledby="home-profile-title">
+  <h1 id="home-profile-title">{{ profile.title }}</h1>
+  <p class="home-profile-description">{{ profile.description }}</p>
+
+  {% if profile.highlights and profile.highlights.size > 0 %}
+    <div class="home-profile-highlights">
+      {% for item in profile.highlights %}
+        <article class="home-profile-highlight">
+          {% if item.icon %}<i class="{{ item.icon }}" aria-hidden="true"></i>{% endif %}
+          {% if item.title %}<h2>{{ item.title }}</h2>{% endif %}
+          {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if profile.links and profile.links.size > 0 %}
+    <div class="home-profile-links">
+      {% for link in profile.links %}
+        <a href="{{ link.url | relative_url }}"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+          {% if link.icon %}<i class="{{ link.icon }}" aria-hidden="true"></i>{% endif %}
+          {{ link.label }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>

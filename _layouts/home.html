@@ -11,10 +11,7 @@ layout: default
 {% endif %}
 
 {% if paginator == nil or paginator.page == 1 %}
-  <section class="home-intro px-xl-1" aria-labelledby="home-intro-title">
-    <h1 id="home-intro-title">{{ site.data.locales[lang].home_intro.title }}</h1>
-    <p>{{ site.data.locales[lang].home_intro.description }}</p>
-  </section>
+  {% include home-profile.html lang=lang %}
 {% endif %}
 
 <div id="post-list" class="flex-grow-1 px-xl-1">

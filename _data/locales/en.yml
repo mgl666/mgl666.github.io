@@ -60,12 +60,6 @@ home_like:
   loading: Processing...
   failed: Like service is unavailable
 
-home_intro:
-  title: "Hi, I'm Guanlong Ma 👋"
-  description: >-
-    Researcher focusing on AI for Science (AI4S) and AI Infrastructure (AIInfra),
-    with interests in foundation models for Earth systems and large-scale AI systems.
-
 # ----- Posts related labels -----
 
 post:

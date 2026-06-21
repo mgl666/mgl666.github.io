@@ -1,0 +1,28 @@
+# Content for the profile module shown on the first Home page.
+# Optional `highlights` and `links` entries are rendered automatically.
+#
+# highlights:
+#   - icon: fas fa-flask
+#     title: Research
+#     description: A short summary.
+# links:
+#   - label: GitHub
+#     url: https://github.com/mgl666
+#     icon: fab fa-github
+#     external: true
+
+en:
+  title: "Hi, I'm Guanlong Ma 👋"
+  description: >-
+    Researcher focusing on AI for Science (AI4S) and AI Infrastructure (AIInfra),
+    with interests in foundation models for Earth systems and large-scale AI systems.
+  highlights: []
+  links: []
+
+zh-CN:
+  title: "你好，我是马冠龙 👋"
+  description: >-
+    专注于科学智能（AI4S）与人工智能基础设施（AIInfra）的研究，
+    关注地球系统基础模型与大规模人工智能系统。
+  highlights: []
+  links: []
