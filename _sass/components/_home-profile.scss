@@ -1,5 +1,7 @@
 .home-profile {
   margin: 0.5rem 0 2.75rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--main-border-color);
 
   > h1 {
     margin-bottom: 0.85rem;
@@ -35,8 +37,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 1.22;
-    padding: 3.2rem 1.25rem 1.7rem;
+    aspect-ratio: 0.82;
+    padding: 3.4rem 1.25rem 2.2rem;
     overflow: visible;
     border: 3px solid var(--card-color);
     border-radius: 50%;
