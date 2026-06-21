@@ -22,7 +22,7 @@ order: 1
 ## <i class="fas fa-file-alt"></i>  **论文**
 - **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Accepted.
 
-- Zhao, Y., Niu, P., Zhou, T., Ma, Z., **Ma, G.**, Jin, R., Yuan, H., & Sun, L. (2026). Pushing the Limits of High-Resolution Weather Forecasting through Data Scaling. In European Conference on Computer Vision. Under Review。
+- Zhao, Y., Niu, P., Zhou, T., Ma, Z., **Ma, G.**, Jin, R., Yuan, H., & Sun, L. (2026). Pushing the Limits of High-Resolution Weather Forecasting through Data Scaling. In European Conference on Computer Vision. Accepted.
 
 ## <i class="fas fa-lightbulb"></i>  **发明专利**
 

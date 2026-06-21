@@ -59,6 +59,12 @@ home_like:
   loading: 处理中...
   failed: 点赞服务暂不可用
 
+home_intro:
+  title: "你好，我是马冠龙 👋"
+  description: >-
+    专注于科学智能（AI4S）与人工智能基础设施（AIInfra）的研究，
+    关注地球系统基础模型与大规模人工智能系统。
+
 # ----- Posts related labels -----
 
 post:

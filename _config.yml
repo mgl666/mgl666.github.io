@@ -72,7 +72,8 @@ pwa:
     enabled: true
     deny_paths: []
 
-# 首页分页数量
+# 首页分页数量：第一页单独使用较小容量，后续页面使用 paginate
+home_first_page_posts: 5
 paginate: 10
 
 # Markdown 与代码高亮设置
@@ -132,7 +133,6 @@ compress_html:
 plugins:
   - jekyll-include-cache
   - jekyll-seo-tag
-  - jekyll-paginate
   - jekyll-sitemap
 
 # 构建时忽略的文件/目录
