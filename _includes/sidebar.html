@@ -169,13 +169,16 @@
       {% assign show_github_icon = true %}
     {% endif %}
     {% assign show_org_icon = false %}
+    {% assign show_scholar_icon = false %}
     {% for entry in site.data.contact %}
       {% if entry.type == 'organization' and entry.url %}
         {% assign show_org_icon = true %}
+      {% elsif entry.type == 'google-scholar' and entry.url %}
+        {% assign show_scholar_icon = true %}
       {% endif %}
     {% endfor %}
     {% assign show_bottom_icons = false %}
-    {% if show_github_icon or show_org_icon %}
+    {% if show_github_icon or show_org_icon or show_scholar_icon %}
       {% assign show_bottom_icons = true %}
     {% endif %}
 
@@ -190,7 +193,7 @@
     {% endunless %}
 
     {% for entry in site.data.contact %}
-      {% unless entry.type == 'github' or entry.type == 'organization' %}
+      {% unless entry.type == 'github' or entry.type == 'organization' or entry.type == 'google-scholar' %}
         {% continue %}
       {% endunless %}
       {% if entry.type == 'github' and show_github_icon == false %}

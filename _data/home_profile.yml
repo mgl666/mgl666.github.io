@@ -14,15 +14,43 @@
 en:
   title: "Hi, I'm Guanlong Ma 👋"
   description: >-
-    Researcher focusing on AI for Science (AI4S) and AI Infrastructure (AIInfra),
+    Researcher focusing on AI for Science (AI4S) and AI Infrastructure (AI Infra),
     with interests in foundation models for Earth systems and large-scale AI systems.
-  highlights: []
+  highlights:
+    - icon: fas fa-cloud-sun
+      title: AI for Science
+      description: Atmospheric Science
+      topics:
+        - Earth-system foundation models
+        - Weather forecasting
+        - Data assimilation
+    - icon: fas fa-server
+      title: AI Infrastructure
+      description: Large-scale AI systems
+      topics:
+        - Distributed training
+        - Inference systems
+        - AI system engineering
   links: []
 
 zh-CN:
   title: "你好，我是马冠龙 👋"
   description: >-
-    专注于科学智能（AI4S）与人工智能基础设施（AIInfra）的研究，
+    专注于科学智能（AI4S）与人工智能基础设施（AI Infra）的研究，
     关注地球系统基础模型与大规模人工智能系统。
-  highlights: []
+  highlights:
+    - icon: fas fa-cloud-sun
+      title: AI for Science
+      description: 大气科学
+      topics:
+        - 地球系统基础模型
+        - 气象预报
+        - 数据同化
+    - icon: fas fa-server
+      title: AI Infrastructure
+      description: 大规模人工智能系统
+      topics:
+        - 分布式训练
+        - 推理系统
+        - AI 系统工程
   links: []
