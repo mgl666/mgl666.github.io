@@ -27,6 +27,9 @@
   }
 
   .home-profile-highlight {
+    --card-color: #2376c9;
+    --card-color-rgb: 35 118 201;
+
     position: relative;
     isolation: isolate;
     display: flex;
@@ -37,12 +40,12 @@
     aspect-ratio: 1;
     padding: 3.4rem 2.2rem 2.2rem;
     overflow: visible;
-    border: 3px solid #2376c9;
+    border: 3px solid var(--card-color);
     border-radius: 50%;
     background:
-      radial-gradient(circle at 20% 20%, rgb(35 118 201 / 8%) 0 1px, transparent 2px),
-      linear-gradient(160deg, var(--main-bg) 58%, rgb(35 118 201 / 10%));
-    box-shadow: 0 0.8rem 2rem rgb(21 93 163 / 10%);
+      radial-gradient(circle at 20% 20%, rgb(var(--card-color-rgb) / 8%) 0 1px, transparent 2px),
+      linear-gradient(160deg, var(--main-bg) 58%, rgb(var(--card-color-rgb) / 10%));
+    box-shadow: 0 0.8rem 2rem rgb(var(--card-color-rgb) / 12%);
     text-align: center;
 
     &::before {
@@ -52,11 +55,11 @@
       left: 10%;
       width: 42%;
       height: 30%;
-      border: 1px solid rgb(35 118 201 / 10%);
+      border: 1px solid rgb(var(--card-color-rgb) / 10%);
       border-radius: 50%;
       box-shadow:
-        0 0 0 0.55rem rgb(35 118 201 / 5%),
-        0 0 0 1.1rem rgb(35 118 201 / 4%);
+        0 0 0 0.55rem rgb(var(--card-color-rgb) / 5%),
+        0 0 0 1.1rem rgb(var(--card-color-rgb) / 4%);
       content: '';
       transform: rotate(-18deg);
     }
@@ -70,9 +73,9 @@
       height: 20%;
       border-radius: 0 0 50% 50%;
       background:
-        radial-gradient(ellipse at 20% 100%, rgb(35 118 201 / 18%) 0 20%, transparent 21%),
-        radial-gradient(ellipse at 55% 100%, rgb(35 118 201 / 12%) 0 28%, transparent 29%),
-        radial-gradient(ellipse at 85% 100%, rgb(35 118 201 / 9%) 0 24%, transparent 25%);
+        radial-gradient(ellipse at 20% 100%, rgb(var(--card-color-rgb) / 18%) 0 20%, transparent 21%),
+        radial-gradient(ellipse at 55% 100%, rgb(var(--card-color-rgb) / 12%) 0 28%, transparent 29%),
+        radial-gradient(ellipse at 85% 100%, rgb(var(--card-color-rgb) / 9%) 0 24%, transparent 25%);
       content: '';
     }
 
@@ -85,7 +88,7 @@
       aspect-ratio: 1;
       border: 0.3rem solid var(--main-bg);
       border-radius: 50%;
-      background: #2376c9;
+      background: var(--card-color);
       box-shadow: 0 0 0 2px #91c4ef;
       color: #ffffff;
       font-size: 2rem;
@@ -95,26 +98,29 @@
 
     h2 {
       margin: 0 0 0.55rem;
-      color: #2376c9;
+      color: var(--card-color);
       font-size: 1.3rem;
       font-weight: 700;
-    }
-
-    .home-profile-highlight-description {
-      margin: 0 0 0.65rem;
-      color: var(--heading-color);
-      font-family: Lora, serif;
-      font-size: 1.02rem;
-      font-weight: 600;
     }
 
     .home-profile-highlight-topics {
       max-width: 14rem;
       margin: 0;
-      color: var(--text-muted-color);
+      color: var(--heading-color);
       font-family: Lora, serif;
-      font-size: 0.92rem;
+      font-size: 1.02rem;
+      font-weight: 600;
       line-height: 1.55;
+    }
+
+    &:nth-child(2) {
+      --card-color: #7157c8;
+      --card-color-rgb: 113 87 200;
+    }
+
+    &:nth-child(3) {
+      --card-color: #168b83;
+      --card-color-rgb: 22 139 131;
     }
   }
 

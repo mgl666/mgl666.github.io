@@ -4,7 +4,8 @@
 # highlights:
 #   - icon: fas fa-flask
 #     title: Research
-#     description: A short summary.
+#     topics:
+#       - A research topic
 # links:
 #   - label: GitHub
 #     url: https://github.com/mgl666
@@ -19,19 +20,22 @@ en:
   highlights:
     - icon: fas fa-cloud-sun
       title: AI for Science
-      description: Atmospheric Science
       topics:
-        - Earth-system foundation models
-        - Weather forecasting
+        - AI Weather Forecasting
+        - Numerical Simulation
         - Data assimilation
     - icon: fas fa-server
       title: AI Infrastructure
-      description: Large-scale AI systems
       topics:
-        - Distributed training
-        - Inference systems
-        - AI system engineering
-  links: []
+        - Distributed Training
+        - Inference Acceleration System
+        - AI System Engineering
+    - icon: fas fa-chart-line
+      title: Data Science
+      topics:
+        - Quantitative modeling of wind and solar power generation
+        - Customer behavior prediction
+
 
 zh-CN:
   title: "你好，我是马冠龙 👋"
@@ -41,16 +45,18 @@ zh-CN:
   highlights:
     - icon: fas fa-cloud-sun
       title: AI for Science
-      description: 大气科学
       topics:
-        - 地球系统基础模型
-        - 气象预报
+        - AI气象预报
+        - 数值模拟
         - 数据同化
     - icon: fas fa-server
       title: AI Infrastructure
-      description: 大规模人工智能系统
       topics:
         - 分布式训练
-        - 推理系统
+        - 推理加速系统
         - AI 系统工程
-  links: []
+    - icon: fas fa-chart-line
+      title: 数据科学
+      topics:
+        - 风能与光伏发电量化
+        - 客户行为预测
