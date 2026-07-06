@@ -8,7 +8,7 @@ order: 1
 
 ## <i class="fas fa-graduation-cap"></i> **Education**
 
-- Nanjing University, School of Atmospheric Sciences, 2023.09 – Present, M.Sc. Student, Advisor: [Huiling Yuan](https://as.nju.edu.cn/60/20/c11339a483360/page.htm)
+- Nanjing University, School of Atmospheric Sciences, 2023.09 – 2026.06, M.Sc. Student, Advisor: [Huiling Yuan](https://as.nju.edu.cn/60/20/c11339a483360/page.htm)
 
 - Nanjing University of Information Science and Technology, School of Atmospheric Sciences, 2019.09 – 2023.06, B.Sc. Student, Advisor: [Dongmei Xu](https://faculty.nuist.edu.cn/xudongmei/zh_CN/index.htm)
 
