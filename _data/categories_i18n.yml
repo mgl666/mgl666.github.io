@@ -34,9 +34,25 @@ AI-LLM:
   en: Deep Learning (LLM)
   zh-CN: 深度学习（LLM）
 
+Agent:
+  en: Agent
+  zh-CN: Agent
+
+智能体:
+  en: Agent
+  zh-CN: 智能体
+
 基础知识:
   en: Basics
   zh-CN: 基础知识
+
+项目:
+  en: Projects
+  zh-CN: 项目
+
+"项目：搭建一个智能体":
+  en: "Project: Build an Agent"
+  zh-CN: 项目：搭建一个智能体
 
 CV基础知识:
   en: Basics

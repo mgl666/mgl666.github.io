@@ -11,17 +11,7 @@
 
 {% assign SEPARATOR = ':' %}
 
-{% assign match_posts = '' | split: '' %}
-
-{% for category in page.categories %}
-  {% assign match_posts = match_posts | push: site.categories[category] | uniq %}
-{% endfor %}
-
-{% for tag in page.tags %}
-  {% assign match_posts = match_posts | push: site.tags[tag] | uniq %}
-{% endfor %}
-
-{% assign match_posts = match_posts | reverse %}
+{% assign match_posts = site.articles | where_exp: 'post', 'post.url != page.url' %}
 {% assign last_index = match_posts.size | minus: 1 %}
 {% assign score_list = '' | split: '' %}
 

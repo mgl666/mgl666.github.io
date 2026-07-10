@@ -3,8 +3,9 @@
 {% assign MAX_SIZE = 5 %}
 
 {% assign all_list = '' | split: '' %}
+{% assign articles = site.articles | where_exp: 'item', 'item.hidden != true' | sort: 'date' | reverse %}
 
-{% for post in site.posts %}
+{% for post in articles %}
   {% assign datetime = post.last_modified_at | default: post.date %}
 
   {% capture elem %}
@@ -35,7 +36,7 @@
     <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
       {% for item in update_list %}
         {% assign index = item | split: '::' | last | plus: 0 %}
-        {% assign post = site.posts[index] %}
+        {% assign post = articles[index] %}
         {% assign url = post.url | relative_url %}
         {%- capture _post_title -%}{% include post-title.html post=post lang=include.lang %}{%- endcapture -%}
         {%- capture _post_title_en -%}{% include post-title.html post=post lang='en' %}{%- endcapture -%}

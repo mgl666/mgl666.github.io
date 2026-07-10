@@ -29,7 +29,3 @@ assets/js/dist
 *~
 .DS_Store
 Thumbs.db
-
-# Local-only draft folders under posts
-_posts/exampl/
-_posts/example/

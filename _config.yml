@@ -90,6 +90,8 @@ kramdown:
 
 # 自定义集合：侧边栏 tabs 页面
 collections:
+  articles:
+    output: true
   tabs:
     output: true
     sort_by: order
@@ -98,12 +100,12 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: posts
+      type: articles
     values:
       layout: post
       comments: true
       toc: true
-      permalink: /posts/:title/
+      permalink: /posts/:name/
   - scope:
       path: _drafts
     values:
@@ -141,8 +143,6 @@ exclude:
   - "*.gemspec"
   - docs
   - tools
-  - _posts/exampl
-  - _posts/example
   - README.md
   - LICENSE
   - purgecss.js

@@ -8,7 +8,7 @@ layout: page
 <div id="page-category">
   {% assign category_posts = page.posts %}
   {% if category_posts == nil or category_posts == empty %}
-    {% assign category_posts = site.categories[page.title] %}
+    {% assign category_posts = site.articles | where_exp: 'post', 'post.categories contains page.title' %}
   {% endif %}
   {% if category_posts == nil %}
     {% assign category_posts = '' | split: '' %}

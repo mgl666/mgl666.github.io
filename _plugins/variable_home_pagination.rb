@@ -75,7 +75,12 @@ module Jekyll
     end
 
     def visible_posts(site)
-      posts = site.site_payload["site"]["posts"].reject { |post| post["hidden"] }
+      collection = site.collections["articles"]
+      return [] unless collection
+
+      posts = collection.docs.reject { |post| post.data["hidden"] }
+                             .sort_by { |post| post.data["date"] || post.date }
+                             .reverse
       pinned, normal = posts.partition { |post| post["pin"] == true }
       pinned + normal
     end

@@ -14,14 +14,13 @@ layout: page
 
 {% assign group_index = 0 %}
 {% assign category_order = site.data.categories_order %}
+{% assign articles = site.articles | where_exp: 'item', 'item.hidden != true' %}
 {% assign ordered_top_categories = '' | split: '' %}
-
-{% assign sort_categories = site.categories | sort %}
 
 {% if category_order and category_order.top %}
   {% for ordered_name in category_order.top %}
-    {% assign ordered_posts = site.categories[ordered_name] %}
-    {% if ordered_posts %}
+    {% assign ordered_posts = articles | where_exp: 'post', 'post.categories contains ordered_name' %}
+    {% if ordered_posts.size > 0 %}
       {% assign first_post = ordered_posts | first %}
       {% if ordered_name == first_post.categories[0] %}
         {% assign ordered_top_categories = ordered_top_categories | push: ordered_name %}
@@ -30,10 +29,9 @@ layout: page
   {% endfor %}
 {% endif %}
 
-{% for category in sort_categories %}
-  {% assign category_name = category | first %}
-  {% assign posts_of_category = category | last %}
-  {% assign first_post = posts_of_category | first %}
+{% for post in articles %}
+  {% assign category_name = post.categories[0] %}
+  {% assign first_post = post %}
   {% if category_name == first_post.categories[0] %}
     {% unless ordered_top_categories contains category_name %}
       {% assign ordered_top_categories = ordered_top_categories | push: category_name %}
@@ -42,7 +40,7 @@ layout: page
 {% endfor %}
 
 {% for category_name in ordered_top_categories %}
-  {% assign posts_of_category = site.categories[category_name] %}
+  {% assign posts_of_category = articles | where_exp: 'post', 'post.categories contains category_name' %}
   {% assign sub_categories = '' | split: '' %}
 
   {% for post in posts_of_category %}
@@ -89,7 +87,7 @@ layout: page
         <a href="{{ _category_url | relative_url }}" class="mx-2">{{ _category_name | strip }}</a>
 
         <!-- content count -->
-        {% assign top_posts_size = site.categories[category_name] | size %}
+        {% assign top_posts_size = posts_of_category | size %}
         <span class="text-muted small font-weight-light">
           {% if sub_categories_size > 0 %}
             {{ sub_categories_size }}
@@ -154,7 +152,8 @@ layout: page
               {%- capture _sub_category_name -%}{% include category-name.html name=sub_category lang=lang %}{%- endcapture -%}
               <a href="{{ _sub_ctg_url | relative_url }}" class="mx-2">{{ _sub_category_name | strip }}</a>
 
-              {% assign posts_size = site.categories[sub_category] | size %}
+              {% assign sub_posts = articles | where_exp: 'post', 'post.categories contains sub_category' %}
+              {% assign posts_size = sub_posts | size %}
               <span class="text-muted small font-weight-light">
                 {{ posts_size }}
 
