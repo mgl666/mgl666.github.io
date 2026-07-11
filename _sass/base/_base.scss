@@ -251,6 +251,16 @@ main {
   display: inline-flex;
 }
 
+.content .img-link {
+  &:not(.left):not(.right):not([class*='w-']) {
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .shimmer {
   overflow: hidden;
   position: relative;

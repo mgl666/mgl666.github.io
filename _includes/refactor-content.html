@@ -2,6 +2,26 @@
 
 {% assign _content = include.content %}
 
+{% if page.layout == 'post' %}
+  {% assign _content_marker = '<div class="content">' %}
+
+  {% if _content contains _content_marker %}
+    {% assign _content_parts = _content | split: _content_marker %}
+    {% assign _before_content = _content_parts | first %}
+    {% assign _after_marker = _content | remove_first: _before_content | remove_first: _content_marker %}
+
+    {% if _after_marker contains '<h1' %}
+      {% assign _h1_parts = _after_marker | split: '<h1' %}
+      {% assign _before_h1 = _h1_parts | first %}
+      {% assign _after_h1_start = _after_marker | remove_first: _before_h1 | remove_first: '<h1' %}
+      {% assign _h1_body = _after_h1_start | split: '</h1>' | first %}
+      {% assign _after_h1 = _after_h1_start | remove_first: _h1_body | remove_first: '</h1>' %}
+      {% assign _after_marker = _before_h1 | append: _after_h1 %}
+      {% assign _content = _before_content | append: _content_marker | append: _after_marker %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
 <!--
   In order to allow a wide table to scroll horizontally,
   we suround the markdown table with `<div class="table-wrapper">` and `</div>`
