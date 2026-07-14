@@ -81,7 +81,8 @@ module Jekyll
       posts = collection.docs.reject { |post| post.data["hidden"] }
                              .sort_by { |post| post.data["date"] || post.date }
                              .reverse
-      posts
+      pinned, normal = posts.partition { |post| post["pin"] == true }
+      pinned + normal
     end
 
     def calculate_pages(total_posts, first_page_size, per_page)
