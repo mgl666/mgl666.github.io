@@ -34,6 +34,8 @@ order: 1
 
 ## <i class="fas fa-trophy"></i> **Competition Awards**
 
+- China Merchants Bank 10th FinTech Training Camp, Diamond Silver Award Team, 2026.07
+
 - 2nd Place, Earth Science Track, the 3rd World Scientific Intelligence Competition, Team Leader, 2025.07
 
 - First Prize, Special Challenge Track, the 19th “Challenge Cup” National College Students’ Extracurricular Academic Science and Technology Works Competition, Team Leader, 2024.12
