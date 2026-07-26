@@ -74,7 +74,7 @@
               {%- capture _related_title -%}{% include post-title.html post=post lang=include.lang %}{%- endcapture -%}
               <h4 class="pt-0 my-2">{{ _related_title | strip }}</h4>
               <div class="text-muted">
-                <p>{% include post-summary.html %}</p>
+                <p>{% include post-summary.html lang=include.lang %}</p>
               </div>
             </div>
           </a>

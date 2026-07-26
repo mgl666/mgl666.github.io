@@ -6,12 +6,23 @@
     max_length: The maximum length of the returned content. Default is 200.
 {%- endcomment -%}
 
+{%- assign summary_lang = include.lang | default: page.lang | default: site.lang | default: 'en' -%}
+
 {%- if post.description and include.full_text != true -%}
   {{- post.description -}}
 {%- else -%}
   {%- comment -%} Remove the line numbers from the code snippet. {%- endcomment -%}
 
   {%- assign content = post.content -%}
+
+  {%- if summary_lang == 'zh-CN' and content contains '<div class="content-zh">' -%}
+    {%- assign content = content | split: '<div class="content-zh">' | last -%}
+    {%- assign content = content | split: '<div class="content-en">' | first -%}
+  {%- elsif summary_lang == 'en' and content contains '<div class="content-en">' -%}
+    {%- assign content = content | split: '<div class="content-en">' | last -%}
+  {%- endif -%}
+
+  {%- assign content = content | replace: '</div>', '' -%}
 
   {%- if content contains '<td class="rouge-gutter gl"><pre class="lineno">' -%}
     {%- assign content = content
