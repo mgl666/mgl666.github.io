@@ -67,6 +67,7 @@ class LangContentSwitcher {
     this.#updateBreadcrumb();
     this.#updateCategoryLinks();
     this.#updatePostMetaLabels();
+    document.dispatchEvent(new CustomEvent('languagecontentchange'));
   }
 
   static #updateSidebarLinks() {

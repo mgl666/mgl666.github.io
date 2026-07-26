@@ -31,6 +31,13 @@ function init() {
   $tocWrapper.classList.remove('invisible');
 
   desktopMode.onchange = refresh;
+  document.addEventListener('languagecontentchange', () => {
+    if (desktopMode.matches) {
+      desktop.refresh();
+    } else {
+      mobile.refresh();
+    }
+  });
 }
 
 export { init as initToc };

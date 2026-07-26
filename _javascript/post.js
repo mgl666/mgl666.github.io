@@ -11,7 +11,6 @@ import {
 } from './modules/components';
 
 loadImg();
-initToc();
 imgPopup();
 initSidebar();
 initLocaleDatetime();
@@ -19,4 +18,5 @@ initClipboard();
 initTopbar();
 loadMermaid();
 LangContentSwitcher.init();
+initToc();
 basic();

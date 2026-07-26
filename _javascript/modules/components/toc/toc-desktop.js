@@ -3,7 +3,8 @@ export class TocDesktop {
   static options = {
     tocSelector: '#toc',
     contentSelector: '.content',
-    ignoreSelector: '[data-toc-skip]',
+    ignoreSelector:
+      '[data-toc-skip], html[lang="zh-CN"] .content-en *, html[lang="en"] .content-zh *',
     headingSelector: 'h2, h3, h4',
     orderedList: false,
     scrollSmooth: false,
