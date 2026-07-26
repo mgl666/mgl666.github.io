@@ -1,9 +1,14 @@
 ---
 title: "MiniPDF：一款轻量级本地 PDF 阅读器与管理工具"
+title_zh: "MiniPDF：一款轻量级本地 PDF 阅读器与管理工具"
+title_en: "MiniPDF: A Lightweight Local PDF Reader and Management Tool"
 date: 2026-07-14 23:40:32 +0800
 categories: [项目发布]
 sort_order: "007000.002"
 ---
+
+<div class="content-zh" markdown="1">
+
 ## 缘起
 
 我电脑里存了不少 PDF——技术文档、论文、电子书、合同协议，散落在各个文件夹里。每次想看点什么，都得在 Finder 里翻半天，找到了还要用系统预览或浏览器打开，没有标注、没有分类、没有统一管理。
@@ -131,3 +136,137 @@ MiniPDF 采用**非商业使用许可协议**，仅限个人、非商业目的�
 它不够完美，但够用——~7MB 的体积，秒开的启动速度，文件夹即分类的直觉设计。
 
 如果你也有一堆 PDF 需要管理，试试看。
+
+</div>
+
+<div class="content-en" markdown="1">
+
+## The Origin
+
+I have quite a few PDFs stored on my computer — technical documents, papers, e-books, contracts and agreements, scattered across various folders. Every time I want to read something, I have to dig through Finder for ages, and when I find it, I still have to open it with system preview or a browser — no annotations, no categorization, no unified management.
+
+The PDF tools on the market are either too heavy — Adobe Acrobat with hundreds of MB installers, slow startup, and features I'll never use; or too bare-bones — system preview can only view without annotating, and browser-opened PDFs can't be managed.
+
+What I wanted was clear:
+
+1. Select a folder, automatically categorize all PDFs by directory structure
+2. Open and read immediately, annotate after reading (highlights, notes, sticky notes)
+3. Occasionally need to merge, compress, or rearrange page order
+4. Clean interface, fast startup, small footprint
+
+And thus, **MiniPDF** was born.
+
+---
+
+## What is MiniPDF
+
+MiniPDF is an **extremely lightweight local PDF reader and management tool**, with an install package of only ~7 MB and instant startup. Built with Tauri 2 + React 18 + TypeScript + Rust, its core values are three words: **fast, small, good enough**.
+
+The core concept is "**folders as categories**" — no manual import, no database creation needed. Select a PDF root directory, and MiniPDF automatically scans and organizes everything by folder structure.
+
+---
+
+## Core Features
+
+### 📂 Folders as Categories
+
+This is the most fundamental design philosophy of MiniPDF. You just need to select a PDF root directory in settings, and MiniPDF will:
+
+- Scan PDFs in the root directory → assign to "Uncategorized"
+- Scan first-level subfolders → generate corresponding categories
+- Scan second-level subfolders → generate subcategories
+- Aggregate all PDFs → "All PDFs" view
+
+The entire process requires no import operations whatsoever. However you organize folders in Finder/File Explorer, MiniPDF displays it the same way.
+
+### 📖 Multi-tab Reading
+
+Embedded with Mozilla's complete pdf.js reader, supporting:
+
+- **Continuous scrolling / single page mode**, freely switchable
+- **Zoom controls**: Zoom in, zoom out, fit width, fit page
+- **Page jump**: Enter page number to jump directly
+- **Thumbnail sidebar**: Quickly locate page positions
+- **Bookmark outline navigation**: Read PDF internal table of contents
+- **Multi-tab**: Open multiple PDFs simultaneously, freely switch between tabs without interference
+
+### 🖊️ Annotation Tools
+
+Annotation features directly leverage pdf.js's built-in annotation system, no need for a separate Canvas layer:
+
+- **Text highlighting**: Select text to auto-highlight, multiple colors available
+- **Highlighter / Pen**: Free drawing, circle key points
+- **Sticky notes**: Click anywhere to add text notes
+- **Eraser**: Erase unwanted annotations
+- **Ctrl+S save**: Annotations written directly into the PDF file
+- **Dirty state detection**: Prompts when closing a tab if changes haven't been saved
+
+### 🛠️ Advanced Tools
+
+Sometimes you need to process the PDF files themselves. MiniPDF has three built-in practical tools:
+
+- **Page rearrangement**: Select PDF → drag thumbnails to reorder pages → delete unwanted pages → export
+- **PDF merge**: Drag in multiple PDFs → adjust merge order → one-click export
+- **PDF compression**: Select PDF → adjust compression quality with slider → compare file sizes before and after compression
+
+All tools support drag-and-drop operations. Just drag files onto the panel to start processing.
+
+### 🎨 Themes & Settings
+
+- **Three themes**: Light, dark, follow system auto-switch
+- **Reader sync**: In dark mode, the pdf.js reader interior also automatically dims
+- **Persistent configuration**: PDF root directory, theme, default zoom, and other settings are automatically saved and ready for next launch
+
+---
+
+## Download & Installation
+
+### macOS (Apple Silicon)
+
+Download `MiniPDF_0.1.0_aarch64.dmg`, double-click to open, then drag MiniPDF into the Applications folder.
+
+> On first launch, since it hasn't been notarized by Apple, you may need to go to "System Settings → Privacy & Security" and click "Open Anyway".
+
+### Windows (x64)
+
+Download `MiniPDF_0.1.0_x64-setup.exe` or `MiniPDF_0.1.0_x64_en-US.msi`, double-click to install.
+
+> Requires WebView2 Runtime to be installed on the system (Windows 11 comes with it, Windows 10 usually installs it automatically).
+
+---
+
+## Future Plans
+
+v0.1.0 is the first version, and there are many features still to come:
+
+- [ ] PDF split tool
+- [ ] Search PDFs (by filename)
+- [ ] Reading progress memory
+- [ ] Recently opened list
+- [ ] Full-text search (PDF content search)
+- [ ] PDF password support
+- [ ] More annotation export formats
+- [ ] Apple Developer ID signing and notarization
+- [ ] Auto-update
+
+If you have suggestions, feel free to submit them at [GitHub Issues](https://github.com/mgl666/MiniPDF/issues).
+
+---
+
+## License
+
+MiniPDF is licensed under a **Non-Commercial Use License**, free for personal, non-commercial use only. See [LICENSE](https://github.com/mgl666/MiniPDF/blob/main/LICENSE) for details.
+
+This software uses Mozilla's [pdf.js](https://github.com/mozilla/pdf.js) (Apache License 2.0).
+
+---
+
+## Final Words
+
+From idea to packaged app, MiniPDF is finally ready to be seen.
+
+It's not perfect, but it's good enough — ~7MB footprint, instant startup speed, intuitive folder-as-category design.
+
+If you also have a pile of PDFs to manage, give it a try.
+
+</div>

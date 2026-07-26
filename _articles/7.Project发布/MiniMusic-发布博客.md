@@ -1,9 +1,13 @@
 ---
 title: "MiniMusic：一款轻量级本地音乐播放器"
+title_zh: "MiniMusic：一款轻量级本地音乐播放器"
+title_en: "MiniMusic: A Lightweight Local Music Player"
 date: 2026-07-13 01:12:52 +0800
 categories: [项目发布]
 sort_order: "007000.001"
 ---
+
+<div class="content-zh" markdown="1">
 
 ## 缘起
 
@@ -199,3 +203,204 @@ MiniMusic 采用**非商业使用许可协议**，仅限个人、非商业目的
 它不够完美，但够用。
 
 如果你也喜欢听本地音乐，试试看。
+
+</div>
+
+<div class="content-en" markdown="1">
+
+## The Origin
+
+I've always been searching for a truly "good enough" local music player.
+
+The players on the market are either too bloated — like iTunes/Apple Music, packed with online services, subscriptions, and recommendation algorithms, where opening a local MP3 takes forever; or too bare-bones — just a file list, no lyrics, no cover art, not even playlist management.
+
+What I wanted was simple:
+
+1. Select a folder, and it automatically recognizes all MP3s inside
+2. Each subfolder automatically becomes a playlist
+3. See cover art and lyrics while playing
+4. A clean, non-intrusive interface
+
+Since I couldn't find one, I decided to build it myself.
+
+And thus, **MiniMusic** was born.
+
+---
+
+## What is MiniMusic
+
+MiniMusic is a **lightweight local music player**, built with Tauri 2 + React 18 + TypeScript + Rust, prioritizing macOS while also supporting Windows.
+
+It doesn't do online music, doesn't have recommendation algorithms, and doesn't collect user data. It does one thing only: **play the MP3s on your hard drive well**.
+
+> Project link: [GitHub](https://github.com/mgl666/MiniMusic)
+
+---
+
+## Core Design Philosophy: Folders are Playlists
+
+MiniMusic's design philosophy is very simple:
+
+> **Folder = Playlist**
+
+All you need to do is organize your music files by folder:
+
+```
+~/Music/
+├── Jay Chou/
+│   ├── Sunny Day.mp3
+│   ├── Common Jasmine Orange.mp3
+│   └── Rice Aroma.mp3
+├── JJ Lin/
+│   ├── River South.mp3
+│   └── A Thousand Years Later.mp3
+└── Instrumental/
+    ├── River Flows in You.mp3
+    └── Kiss the Rain.mp3
+```
+
+Open MiniMusic, select the `~/Music/` directory, and it will automatically:
+- Turn "Jay Chou", "JJ Lin", and "Instrumental" into three playlists
+- Generate an "All Songs" list
+- Read each song's title, artist, album, and duration
+- Extract album cover art
+- Recognize `.lrc` lyric files in the same directory or embedded lyrics in MP3s
+
+No complex databases, no manual import/export — everything happens naturally.
+
+---
+
+## Feature Overview
+
+### 🎵 Playback Experience
+
+- **Playback Controls**: Play/Pause, Previous/Next, progress scrubbing, volume adjustment
+- **Three Playback Modes**: List loop, single repeat, shuffle
+- **Now Playing Full-Screen Mode**: Large cover art + lyrics, immersive experience
+- **Persistent Configuration**: Close and reopen, automatically restores the last playlist, song, volume, and playback mode
+
+### 📝 Lyrics
+
+- Supports `.lrc` lyric files with the same filename (timeline-synced highlighting)
+- Supports MP3 embedded lyrics
+- Displays text fallback when no lyrics are available
+- Lyrics auto-scroll with current line highlighted
+
+### 🎨 Interface
+
+- **Light/Dark Theme**: Light, dark, follow system, one-click toggle
+- **Dock Minimization**: When closing the window, choose to minimize to Dock or quit
+- **Responsive Layout**: Left sidebar playlists, center song list, right lyrics panel
+
+---
+
+## Technology Choice: Why Tauri + Rust
+
+Before starting to code, I seriously considered several options:
+
+| Solution | Advantages | Disadvantages |
+|------|------|------|
+| Electron | Mature ecosystem, frontend-friendly | Large bundle size (~150MB+), high memory usage |
+| SwiftUI | Best native experience | macOS only, steep learning curve |
+| Flutter | Cross-platform, good performance | Desktop not mature enough, limited UI flexibility |
+| **Tauri** | Lightweight (~5MB), cross-platform, frontend freedom | Requires Rust knowledge, some system APIs need custom wrapping |
+
+Ultimately chose **Tauri 2**:
+
+- **Lightweight**: Doesn't bundle Chromium, uses the system WebView directly (WKWebView on macOS, WebView2 on Windows), install package is only a few MB
+- **Frontend Freedom**: React + TypeScript + Vite, as comfortable as writing web pages
+- **Rust Backend**: When system-level capabilities are needed (directory scanning, reading ID3 tags, extracting cover art, parsing lyrics), write Tauri Commands in Rust — performant and secure
+- **Cross-platform**: One codebase, runs on both macOS and Windows
+
+Overall Architecture:
+
+```
+┌─────────────────────────────────────────┐
+│           Tauri 2 (Desktop Shell)         │
+│  ┌───────────────────────────────────┐  │
+│  │    React 18 + TypeScript + Vite   │  │
+│  │  (UI / Playback Control / State)  │  │
+│  │        Zustand (State Mgmt)        │  │
+│  │    HTMLAudioElement (Audio)       │  │
+│  └──────────────┬────────────────────┘  │
+│                 │ Tauri invoke()         │
+│  ┌──────────────▼────────────────────┐  │
+│  │        Rust Backend Capabilities   │  │
+│  │  - Directory Scanning (scanner)   │  │
+│  │  - ID3 Tag Parsing (id3 crate)    │  │
+│  │  - Cover Extraction (base64)      │  │
+│  │  - Lyrics Reading (lyrics)         │  │
+│  │  - Config Management (config)     │  │
+│  └────────────────────────────────────┘  │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## Combined with Netease_url + OneDrive: Complete Workflow
+
+MiniMusic itself only handles playback, but it can be combined with two other tools to form a complete personal music workflow:
+
+```
+  Netease_url           OneDrive              MiniMusic
+  (Downloader) ──────▶ (Sync Tool) ──────▶   (Player)
+      │                    │                     │
+      ▼                    ▼                     ▼
+  Search NetEase     Cross-device sync      Scan local files
+  Parse music library  Keep library consistent  Folder-based playlists
+  Download MP3/FLAC   Cover all devices      Display cover art & lyrics
+```
+
+1. **[Netease_url](https://github.com/Suxiaoqinx/Netease_url)**: A Python + Flask project that can search and download from the NetEase Cloud Music library, supporting multiple quality levels from standard to Hi-Res
+2. **OneDrive**: Set the download directory as a OneDrive folder, and new songs automatically sync to all devices
+3. **MiniMusic**: Scans the OneDrive music directory, automatically recognizing new songs
+
+Three tools, one pipeline, each doing its own job.
+
+---
+
+## Download & Installation
+
+### macOS (Apple Silicon)
+
+Download `MiniMusic_0.1.0_aarch64.dmg`, double-click to open, then drag MiniMusic into the Applications folder.
+
+> On first launch, since it hasn't been notarized by Apple, you may need to go to "System Settings → Privacy & Security" and click "Open Anyway".
+
+### Windows (x64)
+
+Download `MiniMusic_0.1.0_x64-setup.exe` or `MiniMusic_0.1.0_x64-setup.msi`, double-click to install.
+
+---
+
+## Future Plans
+
+v0.1.0 is the first version, and there are many features still to come:
+
+- [ ] FLAC, WAV, AAC, and more format support
+- [ ] Desktop lyrics
+- [ ] EQ equalizer
+- [ ] Audio spectrum visualization
+- [ ] Custom playlists (not dependent on folders)
+- [ ] Apple Developer ID signing and notarization
+- [ ] Auto-update
+
+If you have suggestions, feel free to submit them at [GitHub Issues](https://github.com/mgl666/MiniMusic/issues).
+
+---
+
+## License
+
+MiniMusic is licensed under a **Non-Commercial Use License**, free for personal, non-commercial use only. See [LICENSE](https://github.com/mgl666/MiniMusic/blob/main/LICENSE) for details.
+
+---
+
+## Final Words
+
+From idea to packaged app, MiniMusic is finally ready to be seen.
+
+It's not perfect, but it's good enough.
+
+If you also enjoy listening to local music, give it a try.
+
+</div>
