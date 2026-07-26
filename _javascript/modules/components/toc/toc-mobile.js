@@ -29,7 +29,7 @@ export class TocMobile {
       headingSelector,
       orderedList: false,
       scrollSmooth: false,
-      collapseDepth: 4,
+      collapseDepth: 3,
       headingsOffset: this.#barHeight
     };
   }

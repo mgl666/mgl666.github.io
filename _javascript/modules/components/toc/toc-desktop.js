@@ -17,6 +17,7 @@ export class TocDesktop {
       headingSelector: this.headingSelector,
       orderedList: false,
       scrollSmooth: false,
+      collapseDepth: 3,
       headingsOffset: 16 * 2 // 2rem
     };
   }
