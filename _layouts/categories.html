@@ -31,8 +31,7 @@ layout: page
 
 {% for post in articles %}
   {% assign category_name = post.categories[0] %}
-  {% assign first_post = post %}
-  {% if category_name == first_post.categories[0] %}
+  {% if category_name and category_name != '' %}
     {% unless ordered_top_categories contains category_name %}
       {% assign ordered_top_categories = ordered_top_categories | push: category_name %}
     {% endunless %}
