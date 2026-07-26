@@ -1,11 +1,11 @@
 export class TocDesktop {
   static get headingSelector() {
     if (!document.querySelector('.content-zh, .content-en')) {
-      return 'h2, h3';
+      return 'h2, h3, h4';
     }
 
     const contentClass = document.documentElement.lang === 'zh-CN' ? '.content-zh' : '.content-en';
-    return `${contentClass} h2, ${contentClass} h3`;
+    return `${contentClass} h2, ${contentClass} h3, ${contentClass} h4`;
   }
 
   /* Tocbot options Ref: https://github.com/tscanlin/tocbot#usage */
@@ -17,7 +17,6 @@ export class TocDesktop {
       headingSelector: this.headingSelector,
       orderedList: false,
       scrollSmooth: false,
-      collapseDepth: 3,
       headingsOffset: 16 * 2 // 2rem
     };
   }

@@ -19,8 +19,8 @@ export class TocMobile {
     const contentClass = document.documentElement.lang === 'zh-CN' ? '.content-zh' : '.content-en';
     const hasBilingualContent = document.querySelector('.content-zh, .content-en');
     const headingSelector = hasBilingualContent
-      ? `${contentClass} h2, ${contentClass} h3`
-      : 'h2, h3';
+      ? `${contentClass} h2, ${contentClass} h3, ${contentClass} h4`
+      : 'h2, h3, h4';
 
     return {
       tocSelector: '#toc-popup-content',
@@ -29,7 +29,7 @@ export class TocMobile {
       headingSelector,
       orderedList: false,
       scrollSmooth: false,
-      collapseDepth: 3,
+      collapseDepth: 4,
       headingsOffset: this.#barHeight
     };
   }
