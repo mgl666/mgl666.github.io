@@ -305,7 +305,6 @@
       const postTitle = document.getElementById('post-title');
       const lastmodHeading = document.getElementById('access-lastmod-heading');
       const postedLabels = Array.from(document.querySelectorAll('.i18n-posted-label'));
-      const updatedLabels = Array.from(document.querySelectorAll('.i18n-updated-label'));
       const writtenByLabels = Array.from(document.querySelectorAll('.i18n-written-by-label'));
       const pageviewMeasures = Array.from(document.querySelectorAll('.i18n-pageview-measure'));
       const readtimeUnits = Array.from(document.querySelectorAll('.i18n-readtime-unit'));
@@ -354,9 +353,6 @@
         lastmodHeading.textContent = lang === 'zh-CN' ? lastmodHeading.dataset.zhLabel : lastmodHeading.dataset.enLabel;
       }
       postedLabels.forEach((label) => {
-        label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
-      });
-      updatedLabels.forEach((label) => {
         label.textContent = lang === 'zh-CN' ? label.dataset.zhLabel : label.dataset.enLabel;
       });
       writtenByLabels.forEach((label) => {

@@ -167,16 +167,6 @@ class LangContentSwitcher {
       }
     }
 
-    const updatedLabel = document.querySelector('.i18n-updated-label');
-    if (updatedLabel) {
-      const text = isZh
-        ? updatedLabel.getAttribute('data-zh-label')
-        : updatedLabel.getAttribute('data-en-label');
-      if (text) {
-        updatedLabel.textContent = text;
-      }
-    }
-
     const writtenByLabel = document.querySelector('.i18n-written-by-label');
     if (writtenByLabel) {
       const text = isZh
