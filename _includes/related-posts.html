@@ -67,7 +67,8 @@
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       {% for post in relate_posts %}
         <article class="col">
-          <a href="{{ post.url | relative_url }}" class="post-preview card h-100">
+          {%- capture _related_url -%}{% include post-url.html post=post lang=include.lang %}{%- endcapture -%}
+          <a href="{{ _related_url | strip | relative_url }}" class="post-preview card h-100">
             <div class="card-body">
               {% include datetime.html date=post.date lang=include.lang %}
               {%- capture _related_title -%}{% include post-title.html post=post lang=include.lang %}{%- endcapture -%}

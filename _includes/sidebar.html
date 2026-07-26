@@ -19,9 +19,14 @@
       {% assign switchable_lang_page = true %}
     {% elsif page.layout == 'category' %}
       {% assign switchable_lang_page = true %}
+    {% elsif page.layout == 'post' and page.en_url and page.zh_url %}
+      {% assign switchable_lang_page = true %}
     {% endif %}
 
-    {% if current_path == '/zh/' %}
+    {% if page.layout == 'post' and page.en_url and page.zh_url %}
+      {% assign en_switch_url = page.en_url %}
+      {% assign zh_switch_url = page.zh_url %}
+    {% elsif current_path == '/zh/' %}
       {% assign en_switch_url = '/' %}
       {% assign zh_switch_url = '/zh/' %}
     {% elsif current_path == '/' %}

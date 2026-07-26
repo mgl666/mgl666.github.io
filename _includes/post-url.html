@@ -1,0 +1,7 @@
+{% assign _post = include.post %}
+{% assign _lang = include.lang | default: site.lang | default: 'en' %}
+{% if _lang == 'zh-CN' %}
+  {{ _post.zh_url | default: _post.url }}
+{% else %}
+  {{ _post.en_url | default: _post.url }}
+{% endif %}

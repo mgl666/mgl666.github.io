@@ -498,9 +498,19 @@ h4 {
 
 /* Bilingual content blocks */
 .content-en {
-  display: none;
+  display: block;
 }
 
 .content-zh {
-  display: block;
+  display: none;
+}
+
+html[lang='zh-CN'] {
+  .content-en {
+    display: none;
+  }
+
+  .content-zh {
+    display: block;
+  }
 }

@@ -3,7 +3,7 @@
  * Shows/hides Chinese/English content blocks based on user preference.
  */
 
-const LANG_STORAGE_KEY = 'preferred_lang';
+const LANG_STORAGE_KEY = 'site_preferred_lang';
 const LANG_ZH = 'zh-CN';
 const LANG_EN = 'en';
 
@@ -24,8 +24,8 @@ class LangContentSwitcher {
       this.#currentLang = LANG_ZH;
       return LANG_ZH;
     }
-    this.#currentLang = LANG_ZH;
-    return LANG_ZH;
+    this.#currentLang = LANG_EN;
+    return LANG_EN;
   }
 
   static setLang(lang) {
@@ -198,6 +198,15 @@ class LangContentSwitcher {
   }
 
   static init() {
+    const langSwitch = document.querySelector('.lang-switch');
+    const hasLanguageSpecificUrl = langSwitch?.getAttribute('data-switchable') === 'true';
+    const htmlLang = document.documentElement.getAttribute('lang');
+
+    this.#currentLang = hasLanguageSpecificUrl
+      ? htmlLang?.startsWith('zh')
+        ? LANG_ZH
+        : LANG_EN
+      : this.preferredLang;
     this.#applyLang();
 
     const enLink = document.getElementById('lang-switch-en');
