@@ -4,7 +4,8 @@
 
 {% assign enable_toc = false %}
 {% if site.toc and page.toc %}
-  {% if page.content contains '<h2' or page.content contains '<h3' %}
+  {% assign toc_content = include.content | default: page.content %}
+  {% if toc_content contains '<h2' or toc_content contains '<h3' %}
     {% assign enable_toc = true %}
   {% endif %}
 {% endif %}

@@ -8,7 +8,7 @@ script_includes:
 
 {% include lang.html %}
 
-{% include toc-status.html %}
+{% include toc-status.html content=content %}
 
 {% capture _page_title_en %}{% include post-title.html post=page lang='en' %}{% endcapture %}
 {% capture _page_title_zh %}{% include post-title.html post=page lang='zh-CN' %}{% endcapture %}
