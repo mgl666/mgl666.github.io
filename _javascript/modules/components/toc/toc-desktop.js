@@ -1,15 +1,25 @@
 export class TocDesktop {
+  static get headingSelector() {
+    if (!document.querySelector('.content-zh, .content-en')) {
+      return 'h2, h3, h4';
+    }
+
+    const contentClass = document.documentElement.lang === 'zh-CN' ? '.content-zh' : '.content-en';
+    return `${contentClass} h2, ${contentClass} h3, ${contentClass} h4`;
+  }
+
   /* Tocbot options Ref: https://github.com/tscanlin/tocbot#usage */
-  static options = {
-    tocSelector: '#toc',
-    contentSelector: '.content',
-    ignoreSelector:
-      '[data-toc-skip], html[lang="zh-CN"] .content-en *, html[lang="en"] .content-zh *',
-    headingSelector: 'h2, h3, h4',
-    orderedList: false,
-    scrollSmooth: false,
-    headingsOffset: 16 * 2 // 2rem
-  };
+  static get options() {
+    return {
+      tocSelector: '#toc',
+      contentSelector: '.content',
+      ignoreSelector: '[data-toc-skip]',
+      headingSelector: this.headingSelector,
+      orderedList: false,
+      scrollSmooth: false,
+      headingsOffset: 16 * 2 // 2rem
+    };
+  }
 
   static refresh() {
     tocbot.refresh(this.options);

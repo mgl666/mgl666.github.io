@@ -15,17 +15,24 @@ export class TocMobile {
   static #invisible = true;
   static #barHeight = 16 * 3; // 3rem
 
-  static options = {
-    tocSelector: '#toc-popup-content',
-    contentSelector: '.content',
-    ignoreSelector:
-      '[data-toc-skip], html[lang="zh-CN"] .content-en *, html[lang="en"] .content-zh *',
-    headingSelector: 'h2, h3, h4',
-    orderedList: false,
-    scrollSmooth: false,
-    collapseDepth: 4,
-    headingsOffset: this.#barHeight
-  };
+  static get options() {
+    const contentClass = document.documentElement.lang === 'zh-CN' ? '.content-zh' : '.content-en';
+    const hasBilingualContent = document.querySelector('.content-zh, .content-en');
+    const headingSelector = hasBilingualContent
+      ? `${contentClass} h2, ${contentClass} h3, ${contentClass} h4`
+      : 'h2, h3, h4';
+
+    return {
+      tocSelector: '#toc-popup-content',
+      contentSelector: '.content',
+      ignoreSelector: '[data-toc-skip]',
+      headingSelector,
+      orderedList: false,
+      scrollSmooth: false,
+      collapseDepth: 4,
+      headingsOffset: this.#barHeight
+    };
+  }
 
   static initBar() {
     const observer = new IntersectionObserver(
