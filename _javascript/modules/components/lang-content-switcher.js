@@ -49,7 +49,7 @@ class LangContentSwitcher {
       el.style.display = isZh ? '' : 'none';
     });
     enBlocks.forEach((el) => {
-      el.style.display = isZh ? 'none' : '';
+      el.style.display = isZh ? 'none' : 'block';
     });
 
     const postTitle = document.getElementById('post-title');
