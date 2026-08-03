@@ -28,9 +28,9 @@ order: 1
 
 - Chinese invention patent application as first inventor: *A Self-Supervised Learning-Based Training Method and System for Spatial Downscaling of Meteorological Data*, Application No. 2025111524761
 
-- Chinese invention patent as first inventor: *An Intelligent Recognition Method for Millimeter-Wave Cloud Radar Echoes Based on KAN Networks*, Patent No. ZL202510281809.4
+- Granted Chinese invention patent as first inventor: *An Intelligent Recognition Method for Millimeter-Wave Cloud Radar Echoes Based on KAN Networks*, Patent No. ZL202510281809.4
 
-- Chinese invention patent as fourth inventor: *An Intelligent Filtering Method for PPI Radar Echoes Based on UNet*, Patent No. ZL202510288488.0
+- Granted Chinese invention patent as fourth inventor: *An Intelligent Filtering Method for PPI Radar Echoes Based on UNet*, Patent No. ZL202510288488.0
 
 ## <i class="fas fa-trophy"></i> **Competition Awards**
 
@@ -63,3 +63,7 @@ order: 1
 - **Ma, G.**, Huiling Yuan. Deep Learning-Based Downscaling Using Internal Statistics of Meteorological Fields. Poster Presentation, The 4th Nanjing University Doctoral Interdisciplinary Innovation Forum, Nanjing, Jiangsu, China, 2024.05.30.
 
 - **Ma, G.**, Huiling Yuan. Self-Supervised Learning for Spatial Downscaling of Meteorological Variables. Oral Presentation, The 3rd China Digital Earth Conference, Suzhou, Jiangsu, China, 2024.05.01–02.
+
+### Professional Service
+
+- ACM SIGKDD (Knowledge Discovery and Data Mining) Conference, Reviewer, 2026–2027
