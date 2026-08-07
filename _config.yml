@@ -47,6 +47,9 @@ pageviews:
 analytics:
   google:
     id: "G-W5REXERJQF"
+  # Cloudflare Web Analytics（token 在 Cloudflare Dashboard → Analytics & Logs → Web Analytics 创建站点后获取）
+  cloudflare:
+    id: "e2a5f57123864ae6869912ef63462c80"
 
 # Firebase 配置（用于主页点赞）
 firebase:
