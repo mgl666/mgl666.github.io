@@ -20,7 +20,7 @@ order: 1
 - 华为技术有限公司，云计算BU，AI算法工程师，2024.08 - 2024.11（实习）
 
 ## <i class="fas fa-file-alt"></i>  **论文**
-- **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. Accepted.
+- **Ma, G.**, Chen, W., Zhao, Y., Yuan, H., & Sun, L. (2026). RainCast: A high-resolution 72-hour short-term precipitation forecasting model. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining. [DOI: 10.1145/3770855.3818880](https://doi.org/10.1145/3770855.3818880)
 
 - Zhao, Y., Niu, P., Zhou, T., Ma, Z., **Ma, G.**, Jin, R., Yuan, H., & Sun, L. (2026). Pushing the Limits of High-Resolution Weather Forecasting through Data Scaling. In European Conference on Computer Vision. Accepted.
 
