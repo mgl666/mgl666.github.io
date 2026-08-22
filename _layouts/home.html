@@ -20,6 +20,7 @@ layout: default
       {%- capture _post_url -%}{% include post-url.html post=post lang=lang %}{%- endcapture -%}
       <a href="{{ _post_url | strip | relative_url }}" class="post-preview row g-0">
         {% assign card_body_col = '12' %}
+        {% assign image_on_right = false %}
 
         {% if post.image %}
           {% assign src = post.image.path | default: post.image %}
@@ -55,7 +56,15 @@ layout: default
           {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
           {% assign image_col = post.image.home_col | default: 5 %}
 
-          <div class="home-card-image col-md-{{ image_col }}{% if post.image.home_fit == 'contain' %} home-card-image-contain{% endif %}">
+          {% if post.image.home_fit == 'contain' %}
+            {% assign image_date_seed = post.date | date: '%Y%m%d' | plus: 0 %}
+            {% assign image_date_side = image_date_seed | modulo: 2 %}
+            {% if image_date_side == 1 %}
+              {% assign image_on_right = true %}
+            {% endif %}
+          {% endif %}
+
+          <div class="home-card-image col-md-{{ image_col }}{% if post.image.home_fit == 'contain' %} home-card-image-contain{% endif %}{% if image_on_right %} order-md-2{% endif %}">
             <img
               src="{{ src }}"
               alt="{{ alt }}"
@@ -70,7 +79,7 @@ layout: default
           {% assign card_body_col = 12 | minus: image_col %}
         {% endif %}
 
-        <div class="col-md-{{ card_body_col }}">
+        <div class="col-md-{{ card_body_col }}{% if image_on_right %} order-md-1{% endif %}">
           <div class="card-body d-flex flex-column">
             {%- capture _post_title -%}{% include post-title.html post=post lang=lang %}{%- endcapture -%}
             <h1 class="card-title my-2 mt-md-0">{{ _post_title | strip }}</h1>
