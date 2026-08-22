@@ -54,7 +54,47 @@ Agent:
   en: "Project: Build an Agent"
   zh-CN: 项目：搭建一个智能体
 
+CV论文:
+  en: Papers
+  zh-CN: 论文
+
+LLM论文:
+  en: Papers
+  zh-CN: 论文
+
+Agent论文:
+  en: Papers
+  zh-CN: 论文
+
+DeepSeek:
+  en: DeepSeek
+  zh-CN: DeepSeek
+
+CodeX:
+  en: CodeX
+  zh-CN: CodeX
+
+Pi:
+  en: Pi
+  zh-CN: Pi
+
+OpenClaw:
+  en: OpenClaw
+  zh-CN: OpenClaw
+
+Hermes:
+  en: Hermes
+  zh-CN: Hermes
+
+CS336:
+  en: CS336
+  zh-CN: CS336
+
 CV基础知识:
+  en: Basics
+  zh-CN: 基础知识
+
+LLM基础知识:
   en: Basics
   zh-CN: 基础知识
 

@@ -22,9 +22,9 @@
 
   .home-profile-highlights {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 3.5rem 1.25rem;
-    max-width: 49rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3.5rem 1rem;
+    max-width: 64rem;
     margin: 4.25rem auto 0;
   }
 
@@ -38,7 +38,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 0.82;
     padding: 3.4rem 1.25rem 2.2rem;
     overflow: visible;
     border: 3px solid var(--card-color);
@@ -128,6 +127,11 @@
     &:nth-child(3) {
       --card-color: #168b83;
       --card-color-rgb: 22 139 131;
+    }
+
+    &:nth-child(4) {
+      --card-color: #d47a38;
+      --card-color-rgb: 212 122 56;
     }
   }
 
