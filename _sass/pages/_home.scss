@@ -23,6 +23,17 @@
     border: 0;
     background: none;
 
+    .post-preview {
+      border: 1px solid rgb(127 127 127 / 22%);
+      box-shadow: 0 4px 14px rgb(0 0 0 / 8%);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+      &:hover {
+        border-color: rgb(127 127 127 / 35%);
+        box-shadow: 0 6px 18px rgb(0 0 0 / 12%);
+      }
+    }
+
     %img-radius {
       border-radius: v.$radius-lg v.$radius-lg 0 0;
 
@@ -34,6 +45,25 @@
     .home-card-image {
       .preview-img {
         background: #f7f9fc;
+      }
+
+      .home-card-contain {
+        width: 90% !important;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+    .home-card-image-contain {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+
+      .preview-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
 

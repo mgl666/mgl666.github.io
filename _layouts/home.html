@@ -53,12 +53,20 @@ layout: default
           {% endif %}
 
           {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+          {% assign image_col = post.image.home_col | default: 5 %}
 
-          <div class="home-card-image col-md-5">
-            <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
+          <div class="home-card-image col-md-{{ image_col }}{% if post.image.home_fit == 'contain' %} home-card-image-contain{% endif %}">
+            <img
+              src="{{ src }}"
+              alt="{{ alt }}"
+              {{ lqip_attr }}
+              {% if post.image.home_fit == 'contain' %}
+                class="home-card-contain"
+              {% endif %}
+            >
           </div>
 
-          {% assign card_body_col = '7' %}
+          {% assign card_body_col = 12 | minus: image_col %}
         {% endif %}
 
         <div class="col-md-{{ card_body_col }}">

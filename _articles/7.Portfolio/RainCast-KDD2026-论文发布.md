@@ -9,6 +9,7 @@ pin: true
 image:
   path: /assets/img/articles/raincast/RainCast_Architecture.png
   alt: "RainCast 模型架构"
+  home_fit: contain
 ---
 
 <div class="content-zh" markdown="1">
