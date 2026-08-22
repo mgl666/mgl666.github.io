@@ -3,7 +3,7 @@ title: "MiniPDF：一款轻量级本地 PDF 阅读器与管理工具"
 title_zh: "MiniPDF：一款轻量级本地 PDF 阅读器与管理工具"
 title_en: "MiniPDF: A Lightweight Local PDF Reader and Management Tool"
 date: 2026-07-14 23:40:32 +0800
-categories: [项目发布]
+categories: [Portfolio]
 sort_order: "007000.002"
 ---
 

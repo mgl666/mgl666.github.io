@@ -3,7 +3,7 @@ title: "MiniMusic：一款轻量级本地音乐播放器"
 title_zh: "MiniMusic：一款轻量级本地音乐播放器"
 title_en: "MiniMusic: A Lightweight Local Music Player"
 date: 2026-07-13 01:12:52 +0800
-categories: [项目发布]
+categories: [Portfolio]
 sort_order: "007000.001"
 ---
 

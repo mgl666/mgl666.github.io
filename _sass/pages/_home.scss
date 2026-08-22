@@ -27,7 +27,13 @@
       border-radius: v.$radius-lg v.$radius-lg 0 0;
 
       @include bp.md {
-        border-radius: 0 v.$radius-lg v.$radius-lg 0;
+        border-radius: v.$radius-lg 0 0 v.$radius-lg;
+      }
+    }
+
+    .home-card-image {
+      .preview-img {
+        background: #f7f9fc;
       }
     }
 

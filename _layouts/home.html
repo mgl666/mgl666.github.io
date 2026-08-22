@@ -18,7 +18,7 @@ layout: default
   {% for post in posts %}
     <article class="card-wrapper card">
       {%- capture _post_url -%}{% include post-url.html post=post lang=lang %}{%- endcapture -%}
-      <a href="{{ _post_url | strip | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+      <a href="{{ _post_url | strip | relative_url }}" class="post-preview row g-0">
         {% assign card_body_col = '12' %}
 
         {% if post.image %}
@@ -54,7 +54,7 @@ layout: default
 
           {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
 
-          <div class="col-md-5">
+          <div class="home-card-image col-md-5">
             <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
           </div>
 

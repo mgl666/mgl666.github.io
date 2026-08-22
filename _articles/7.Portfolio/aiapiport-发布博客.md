@@ -3,7 +3,7 @@ title: "aiapiport：一个极简的 LLM API 网关，把散落的 API Key 整合
 title_zh: "aiapiport：一个极简的 LLM API 网关，把散落的 API Key 整合成一个统一入口"
 title_en: "aiapiport: A Minimal LLM API Gateway to Unify All Your Scattered API Keys"
 date: 2026-07-26 14:32:20 +0800
-categories: [项目发布]
+categories: [Portfolio]
 sort_order: "007000.003"
 ---
 

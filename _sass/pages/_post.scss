@@ -16,6 +16,12 @@
 }
 
 header {
+  .post-cover-img {
+    aspect-ratio: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
   .post-desc {
     @extend %heading;
 
