@@ -14,6 +14,8 @@ order: 1
 
 ## <i class="fas fa-briefcase"></i> **Work Experience**
 
+- Huawei Technologies Co., Ltd., Cloud Computing BU, AI Agent Engineer, 2026.08 – Now
+
 - Alibaba DAMO Academy, Intelligent Decision-Making Team, AI Algorithm Engineer Intern, 2025.07 – 2026.03
 
 - Huawei Technologies Co., Ltd., Cloud Computing BU, AI Algorithm Engineer Intern, 2024.08 – 2024.11
