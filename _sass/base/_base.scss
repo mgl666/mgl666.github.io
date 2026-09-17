@@ -407,8 +407,7 @@ mjx-container {
 
 /* 过长的公式允许横向滚动，避免撑破页面布局 */
 mjx-container[display='true'] {
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
   max-width: 100%;
 }
 
