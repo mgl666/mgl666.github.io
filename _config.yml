@@ -109,6 +109,8 @@ defaults:
       comments: true
       toc: true
       permalink: /posts/:name/
+      # 默认开启 MathJax，文章中的 $...$ / $$...$$ 公式才会被渲染
+      math: true
   - scope:
       path: _drafts
     values:
