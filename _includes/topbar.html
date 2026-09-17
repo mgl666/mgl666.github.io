@@ -71,7 +71,7 @@
             {%- capture _post_category_name -%}{% include category-name.html name=post_category lang=include.lang %}{%- endcapture -%}
             {%- capture _post_category_name_en -%}{% include category-name.html name=post_category lang='en' %}{%- endcapture -%}
             {%- capture _post_category_name_zh -%}{% include category-name.html name=post_category lang='zh-CN' %}{%- endcapture -%}
-            {% assign post_category_slug = post_category | slugify | url_encode %}
+            {% assign post_category_slug = post_category | slugify: 'pretty' | url_encode %}
             <span>
               <a
                 class="i18n-breadcrumb-current-category"

@@ -81,7 +81,7 @@ layout: page
       <span class="ms-2">
         <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
 
-        {% capture _category_url %}{{ category_base }}{{ category_name | slugify | url_encode }}/{% endcapture %}
+        {% capture _category_url %}{{ category_base }}{{ category_name | slugify: 'pretty' | url_encode }}/{% endcapture %}
         {%- capture _category_name -%}{% include category-name.html name=category_name lang=lang %}{%- endcapture -%}
         <a href="{{ _category_url | relative_url }}" class="mx-2">{{ _category_name | strip }}</a>
 
@@ -147,7 +147,7 @@ layout: page
             <li class="list-group-item">
               <i class="far fa-folder fa-fw"></i>
 
-              {% capture _sub_ctg_url %}{{ category_base }}{{ sub_category | slugify | url_encode }}/{% endcapture %}
+              {% capture _sub_ctg_url %}{{ category_base }}{{ sub_category | slugify: 'pretty' | url_encode }}/{% endcapture %}
               {%- capture _sub_category_name -%}{% include category-name.html name=sub_category lang=lang %}{%- endcapture -%}
               <a href="{{ _sub_ctg_url | relative_url }}" class="mx-2">{{ _sub_category_name | strip }}</a>
 
