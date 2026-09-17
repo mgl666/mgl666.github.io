@@ -504,6 +504,17 @@ h4 {
 
 /* Bilingual content blocks */
 .content .model-notes {
+  p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  mjx-container[display='true'] {
+    display: block;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+
   > .img-link,
   > p > .img-link {
     max-width: min(100%, 44rem);
