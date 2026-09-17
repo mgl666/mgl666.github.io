@@ -22,11 +22,7 @@ sub:
   智能体:
     - 基础知识
     - "项目：搭建一个智能体"
-    - DeepSeek
-    - CodeX
-    - Pi
-    - OpenClaw
-    - Hermes
+    - 开源Agent
     - Agent论文
 
 

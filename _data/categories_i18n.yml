@@ -1,27 +1,3 @@
-AI-气象:
-  en: AI-Meteorology
-  zh-CN: AI-气象
-
-AI气候预报:
-  en: AI Climate Forecast
-  zh-CN: AI气候预报
-
-AI短临预报:
-  en: AI Nowcasting
-  zh-CN: AI短临预报
-
-AI气象大模型:
-  en: AI Weather Model
-  zh-CN: AI气象大模型
-
-AI-CV:
-  en: AI-CV
-  zh-CN: AI-计算机视觉
-
-AI-LLM:
-  en: AI-LLM
-  zh-CN: AI-大语言模型
-
 机器学习:
   en: Machine Learning
   zh-CN: 机器学习
@@ -34,10 +10,6 @@ AI-LLM:
   en: Deep Learning (LLM)
   zh-CN: 深度学习（LLM）
 
-Agent:
-  en: Agent
-  zh-CN: Agent
-
 智能体:
   en: Agent
   zh-CN: 智能体
@@ -45,10 +17,6 @@ Agent:
 基础知识:
   en: Basics
   zh-CN: 基础知识
-
-项目:
-  en: Projects
-  zh-CN: 项目
 
 "项目：搭建一个智能体":
   en: "Project: Build an Agent"
@@ -66,25 +34,9 @@ Agent论文:
   en: Papers
   zh-CN: 论文
 
-DeepSeek:
-  en: DeepSeek
-  zh-CN: DeepSeek
-
-CodeX:
-  en: CodeX
-  zh-CN: CodeX
-
-Pi:
-  en: Pi
-  zh-CN: Pi
-
-OpenClaw:
-  en: OpenClaw
-  zh-CN: OpenClaw
-
-Hermes:
-  en: Hermes
-  zh-CN: Hermes
+开源Agent:
+  en: Open-Source Agents
+  zh-CN: 开源Agent
 
 CS336:
   en: CS336
@@ -101,10 +53,6 @@ LLM基础知识:
 算法基础知识:
   en: Basics
   zh-CN: 基础知识
-
-论文:
-  en: Papers
-  zh-CN: 论文
 
 AI4S(气象):
   en: AI4S (Meteorology)
