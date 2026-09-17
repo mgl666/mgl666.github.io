@@ -9,9 +9,9 @@ order: 1
 
 ## <i class="fas fa-graduation-cap"></i> **教育经历**
 
-- 南京大学，大气科学学院，2023.09 – 2026.06，硕士，导师：[袁慧玲](https://as.nju.edu.cn/60/20/c11339a483360/page.htm)
+- 南京大学，大气科学学院，2023.09 – 2026.06，硕士，导师：[袁慧玲](https://as.nju.edu.cn/60/20/c11339a483360/page.htm)（长江学者特聘教授，灾害天气科学与技术全国重点实验室）
 
-- 南京信息工程大学，大气科学学院，2019.09 – 2023.06，本科，导师：[许冬梅](https://faculty.nuist.edu.cn/xudongmei/zh_CN/index.htm)
+- 南京信息工程大学，大气科学学院，2019.09 – 2023.06，本科，导师：[许冬梅](https://faculty.nuist.edu.cn/xudongmei/zh_CN/index.htm)（副教授，气候系统预测与变化应对全国重点实验室）
 
 ## <i class="fas fa-briefcase"></i> **工作经历**
 
