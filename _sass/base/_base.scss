@@ -405,6 +405,35 @@ mjx-container {
   min-width: auto !important;
 }
 
+/* 过长的公式允许横向滚动，避免撑破页面布局 */
+mjx-container[display='true'] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+/* 独占一行的公式居中显示 */
+.content p > mjx-container:only-child {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* 正文中独占一行的图片居中显示 */
+.content p > img:only-child,
+.content > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 被链接包裹的图片：<p><a><img></a></p> */
+.content p > a:only-child {
+  display: block;
+  text-align: center;
+}
+
 @media (hover: hover) {
   #sidebar ul > li:last-child::after {
     transition: top 0.5s ease;
