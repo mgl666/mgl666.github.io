@@ -4,7 +4,7 @@ title_zh: "MiniPDF：一款轻量级本地 PDF 阅读器与管理工具"
 title_en: "MiniPDF: A Lightweight Local PDF Reader and Management Tool"
 date: 2026-07-14 23:40:32 +0800
 categories: [Portfolio]
-sort_order: "007000.002"
+sort_order: "008000.002"
 ---
 
 <div class="content-zh" markdown="1">

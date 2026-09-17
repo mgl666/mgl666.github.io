@@ -4,7 +4,7 @@ title_zh: "MiniSpark：一个能在 1GB 服务器上跑的轻量级 AI Agent 框
 title_en: "MiniSpark: A Lightweight AI Agent Framework That Runs on a 1GB Server"
 date: 2026-07-27 10:11:40 +0800
 categories: [Portfolio]
-sort_order: "007000.004"
+sort_order: "008000.004"
 ---
 
 <div class="content-zh" markdown="1">

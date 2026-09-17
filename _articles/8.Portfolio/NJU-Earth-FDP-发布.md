@@ -4,7 +4,7 @@ title_zh: "NJU-Earth 参加 FDP：构建系列化 AI 气象预报体系"
 title_en: "NJU-Earth Joins FDP: Building a Family of AI Weather Forecasting Models"
 date: 2026-08-01 00:45:55 +0800
 categories: [Portfolio]
-sort_order: "007000.006"
+sort_order: "008000.006"
 pin: true
 image:
   path: /assets/img/articles/nju-earth/AIM-FDP-2.0.png

@@ -4,7 +4,7 @@ title_zh: "MiniMusic：一款轻量级本地音乐播放器"
 title_en: "MiniMusic: A Lightweight Local Music Player"
 date: 2026-07-13 01:12:52 +0800
 categories: [Portfolio]
-sort_order: "007000.001"
+sort_order: "008000.001"
 ---
 
 <div class="content-zh" markdown="1">

@@ -134,6 +134,26 @@ S2S气象预报:
   en: Ensemble Forecast
   zh-CN: 集合预报
 
+编程基础:
+  en: Programming Basics
+  zh-CN: 编程基础
+
+C++:
+  en: C++
+  zh-CN: C++
+
+Python:
+  en: Python
+  zh-CN: Python
+
+Java:
+  en: Java
+  zh-CN: Java
+
+数据库:
+  en: Database
+  zh-CN: 数据库
+
 算法题:
   en: Algorithm Problems
   zh-CN: 算法题

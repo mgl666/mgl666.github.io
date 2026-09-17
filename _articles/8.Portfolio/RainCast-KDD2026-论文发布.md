@@ -4,7 +4,7 @@ title_zh: "RainCast：高分辨率 72 小时短期降水预报模型"
 title_en: "RainCast: A High-Resolution 72-Hour Short-Term Precipitation Forecasting Model"
 date: 2026-08-08 10:43:21 +0800
 categories: [Portfolio]
-sort_order: "007000.005"
+sort_order: "008000.005"
 pin: true
 image:
   path: /assets/img/articles/raincast/RainCast_Architecture.png
