@@ -503,6 +503,52 @@ h4 {
 }
 
 /* Bilingual content blocks */
+.content .model-notes {
+  > .img-link,
+  > p > .img-link {
+    max-width: min(100%, 44rem);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .convolution-gallery,
+  .model-image-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+    align-items: center;
+  }
+
+  .convolution-gallery {
+    figure {
+      min-width: 0;
+      margin: 0;
+      align-self: start;
+    }
+
+    .img-link {
+      max-width: 10rem;
+    }
+
+    figcaption {
+      margin-top: 0.5rem;
+      line-height: 1.5;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .model-image-group > .img-link {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 .content-en {
   display: block;
 }

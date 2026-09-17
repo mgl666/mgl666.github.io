@@ -411,14 +411,6 @@ mjx-container[display='true'] {
   max-width: 100%;
 }
 
-/* 独占一行的公式居中显示 */
-.content p > mjx-container:only-child {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
 /* 正文中独占一行的图片居中显示 */
 .content p > img:only-child,
 .content > img {
@@ -428,7 +420,7 @@ mjx-container[display='true'] {
 }
 
 /* 被链接包裹的图片：<p><a><img></a></p> */
-.content p > a:only-child {
+.content p > a.img-link:only-child {
   display: block;
   text-align: center;
 }
