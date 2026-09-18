@@ -425,6 +425,13 @@ mjx-container[display='true'] {
   text-align: center;
 }
 
+/* 普通文章图片由自动外边距居中，避免与旧的位移居中规则叠加 */
+.content p > a.popup.img-link:not(.normal):not(.left):not(.right) {
+  position: static;
+  left: auto;
+  transform: none;
+}
+
 @media (hover: hover) {
   #sidebar ul > li:last-child::after {
     transition: top 0.5s ease;

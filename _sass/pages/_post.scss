@@ -642,12 +642,6 @@ h4 {
     }
   }
 
-  > p > a.popup.img-link:not(.normal):not(.left):not(.right) {
-    position: static;
-    left: auto;
-    transform: none;
-  }
-
   > p > a.img-link:only-child {
     display: flex;
     width: 100%;
