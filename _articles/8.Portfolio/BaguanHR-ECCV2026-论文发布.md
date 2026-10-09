@@ -32,6 +32,7 @@ image:
 | 出版社 | Springer, Cham |
 | 正式上线日期 | 2026 年 10 月 5 日 |
 | 电子版 ISBN | 978-3-032-37086-0 |
+| DOI | [10.1007/978-3-032-37086-0_8](https://doi.org/10.1007/978-3-032-37086-0_8) |
 
 Yang Zhao、Peisong Niu 与 Tian Zhou 为共同第一作者；Huiling Yuan 与 Liang Sun 为通讯作者。
 
@@ -40,8 +41,6 @@ Yang Zhao、Peisong Niu 与 Tian Zhou 为共同第一作者；Huiling Yuan 与 L
 全球 0.1° 天气预报面临高分辨率训练数据不足的问题，而长期 ERA5 再分析资料主要提供 0.25° 数据。BaguanHR 使用逐变量超分辨率重建，将这些历史资料转为 0.1° 合成数据，再结合真实高分辨率资料训练预报模型。
 
 实验中，BaguanHR 在 72 小时内超过 **85% 的预报时效**上优于所评估的机器学习方法及 IFS-HRES。数据规模扩展带来幂律式性能改善：论文报告 72 小时和 120 小时预报的 RMSE 分别降低 **4.6%** 和 **4.9%**。
-
-以上内容根据[正式发表版本摘要](https://link.springer.com/chapter/10.1007/978-3-032-37086-0_8)整理。
 
 ## 核心贡献
 
@@ -73,6 +72,7 @@ Our paper, **Pushing the Limits of High-Resolution Weather Forecasting Through D
 | Publisher | Springer, Cham |
 | First online | October 5, 2026 |
 | Online ISBN | 978-3-032-37086-0 |
+| DOI | [10.1007/978-3-032-37086-0_8](https://doi.org/10.1007/978-3-032-37086-0_8) |
 
 Yang Zhao, Peisong Niu, and Tian Zhou contributed equally. Huiling Yuan and Liang Sun are the corresponding authors.
 
@@ -81,8 +81,6 @@ Yang Zhao, Peisong Niu, and Tian Zhou contributed equally. Huiling Yuan and Lian
 High-resolution training data is scarce. BaguanHR reconstructs historical 0.25° ERA5 fields at 0.1° and combines synthetic and real data to train a forecasting model.
 
 It outperforms evaluated ML baselines and IFS-HRES at over **85% of lead times within 72 hours**. Data scaling follows a power-law trend, with reported RMSE reductions of **4.6%** at 72 hours and **4.9%** at 120 hours.
-
-This summary is based on the [published abstract](https://link.springer.com/chapter/10.1007/978-3-032-37086-0_8).
 
 ## Main Contributions
 
