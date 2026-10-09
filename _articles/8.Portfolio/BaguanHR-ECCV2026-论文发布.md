@@ -2,7 +2,7 @@
 title: "BaguanHR：通过数据扩展突破高分辨率天气预报瓶颈"
 title_zh: "BaguanHR：通过数据扩展突破高分辨率天气预报瓶颈"
 title_en: "BaguanHR: Scaling Data for High-Resolution Weather Forecasting"
-date: 2026-10-09 10:00:00 +0900
+date: 2026-10-05 10:00:00 +0900
 categories: [Portfolio]
 sort_order: "008000.007"
 pin: true
@@ -32,7 +32,6 @@ image:
 | 出版社 | Springer, Cham |
 | 正式上线日期 | 2026 年 10 月 5 日 |
 | 电子版 ISBN | 978-3-032-37086-0 |
-| DOI | [10.1007/978-3-032-37086-0_8](https://doi.org/10.1007/978-3-032-37086-0_8) |
 
 Yang Zhao、Peisong Niu 与 Tian Zhou 为共同第一作者；Huiling Yuan 与 Liang Sun 为通讯作者。
 
@@ -74,7 +73,6 @@ Our paper, **Pushing the Limits of High-Resolution Weather Forecasting Through D
 | Publisher | Springer, Cham |
 | First online | October 5, 2026 |
 | Online ISBN | 978-3-032-37086-0 |
-| DOI | [10.1007/978-3-032-37086-0_8](https://doi.org/10.1007/978-3-032-37086-0_8) |
 
 Yang Zhao, Peisong Niu, and Tian Zhou contributed equally. Huiling Yuan and Liang Sun are the corresponding authors.
 
